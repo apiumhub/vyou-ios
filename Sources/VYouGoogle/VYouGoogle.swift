@@ -1,4 +1,5 @@
 import VYou
+import VYouCore
 import UIKit
 
 public final class VYouGoogle {

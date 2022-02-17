@@ -1,3 +1,4 @@
+import VYouCore
 import VYou
 import UIKit
 
@@ -16,6 +17,7 @@ public final class VYouApple {
             onFailure(VYouAppleError.socialImplementation)
         }) { token in
             let params = VYouSignInSocialParams(accessToken: token)
+                                    
             VYou.shared.signInApple(params: params) { credentials, error in
                 if let error = error {
                     onFailure(error)

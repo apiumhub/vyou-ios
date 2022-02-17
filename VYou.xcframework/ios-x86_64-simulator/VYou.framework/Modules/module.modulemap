@@ -1,6 +1,0 @@
-framework module VYou {
-    umbrella header "VYou.h"
-
-    export *
-    module * { export * }
-}
