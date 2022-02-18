@@ -18,7 +18,7 @@ let package = Package(
             .package(url: "https://github.com/facebook/facebook-ios-sdk",.upToNextMajor(from: "12.0.0")),
             .package(url: "https://github.com/google/GoogleSignIn-iOS.git", .upToNextMajor(from: "6.0.2")),
             .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMajor(from: "1.0.0")),
-            .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0"),
+            .package(url: "https://github.com/raeve/bcrypt-sp.git", .branch("main")),
         ],
     targets: [
         .binaryTarget(
@@ -30,7 +30,7 @@ let package = Package(
             dependencies: [
                 "VYouCore",
                 .product(name: "CryptoSwift", package: "CryptoSwift"),
-                .product(name: "Vapor", package: "vapor")
+                .product(name: "Bcrypt", package: "bcrypt-sp")
             ],
             path: "Sources/VYou"
         ),
