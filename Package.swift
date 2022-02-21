@@ -18,7 +18,7 @@ let package = Package(
             .package(url: "https://github.com/facebook/facebook-ios-sdk",.upToNextMajor(from: "12.0.0")),
             .package(url: "https://github.com/google/GoogleSignIn-iOS.git", .upToNextMajor(from: "6.0.2")),
             .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMajor(from: "1.0.0")),
-            .package(url: "https://github.com/raeve/bcrypt-sp.git", .branch("main")),
+            .package(url: "https://github.com/raeve/bcrypt-sp.git", .upToNextMajor(from: "1.0.0")),
         ],
     targets: [
         .binaryTarget(
