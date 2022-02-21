@@ -10,12 +10,12 @@ import VYouCore
 
 public final class VYou {
     internal let client: VYouClient
-    public static var shared: VYou!
     internal let cryptManager: CryptManager
+    public static var shared: VYou!
     
-    private init(client: VYouClient, publicSaltBase64: String = "SJZgbruvbTF5k0sNNB3lnQ") {
+    private init(client: VYouClient, cryptManager: CryptManager) {
         self.client = client
-        self.cryptManager = CryptManager(publicSaltBase64: publicSaltBase64)
+        self.cryptManager = cryptManager
     }
     
     public func isLoggedIn() -> Bool { return client.isLoggedIn() }
@@ -78,23 +78,35 @@ public final class VYou {
     public class Builder {
         let clientId: String
         let serverUrl: String
+        let publicSalt: String
         var networkLogLevel: VYouLogLevel = .none
         var onRefreshTokenFailure: (VYouError) -> Void = {_ in }
         var onSignOut: () -> Void = {}
         
-        public init(clientId: String, serverUrl: String) {
+        public init(clientId: String, serverUrl: String, publicSalt: String) {
             self.clientId = clientId
             self.serverUrl = serverUrl
+            self.publicSalt = publicSalt
         }
         
-        func enableNetworkLogs(level: VYouLogLevel) -> Builder {
+        public func enableNetworkLogs(level: VYouLogLevel) -> Builder {
             networkLogLevel = level
             return self
         }
         
-        func build() {
+        public func addOnRefreshTokenFailure(block: (VYouError) -> Void) -> Builder {
+            onRefreshTokenFailure = block
+            return self
+        }
+        
+        public func addOnSignOut(block: () -> Void) -> Builder {
+            onSignOut = block
+            return self
+        }
+        
+        public func build() {
             let client = VYouClient(clientId: clientId, serverUrl: serverUrl, networkLogLevel: networkLogLevel, onRefreshTokenFailure: onRefreshTokenFailure, onSignOut: onSignOut)
-            shared = VYou(client: client)
+            shared = VYou(client: client, cryptManager: CryptManager(publicSalt: publicSalt))
         }
     }
     

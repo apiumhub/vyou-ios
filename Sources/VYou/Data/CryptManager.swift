@@ -5,10 +5,10 @@ import VYouCore
 import Bcrypt
 
 internal class CryptManager {
-    private let publicSaltBase64: String
+    private let publicSalt: String
     
-    internal init(publicSaltBase64: String) {
-        self.publicSaltBase64 = publicSaltBase64
+    internal init(publicSalt: String) {
+        self.publicSalt = publicSalt
     }
     
     internal func pkce() -> PKCE {
@@ -24,7 +24,7 @@ internal class CryptManager {
     }
     
     internal func bCrypt(email: String, password: String) -> String {
-        let saltBytes = "\(publicSaltBase64)\(email)".bytes.sha512().prefix(16)
+        let saltBytes = "\(publicSalt)\(email)".bytes.sha512().prefix(16)
         let seed = Array<UInt8>(saltBytes)
         let salt = Bcrypt.generateSalt(cost: 12, seed: seed)
         
