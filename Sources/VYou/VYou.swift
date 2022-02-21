@@ -94,12 +94,12 @@ public final class VYou {
             return self
         }
         
-        public func addOnRefreshTokenFailure(block: (VYouError) -> Void) -> Builder {
+        public func addOnRefreshTokenFailure(block: @escaping (VYouError) -> Void) -> Builder {
             onRefreshTokenFailure = block
             return self
         }
         
-        public func addOnSignOut(block: () -> Void) -> Builder {
+        public func addOnSignOut(block: @escaping () -> Void) -> Builder {
             onSignOut = block
             return self
         }
