@@ -23,7 +23,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "VYouCore",
-            path: "VYouCore.xcframework"
+            path: "vyou-kmm/VYouCore.xcframework"
         ),
         .target(
             name: "VYou",
