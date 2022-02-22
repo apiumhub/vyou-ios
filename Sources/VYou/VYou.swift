@@ -25,7 +25,7 @@ public final class VYou {
     public func tokenType() -> String{ return client.getTokenType() }
     
     public func signIn(params: VYouSignInParams, completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
-        return client.signIn(params: params, pkce: cryptManager.pkce(), completionHandler: completionHandler)
+        return client.signIn(params: params.doCopy(username: params.username, password: cryptManager.encryptPassword(email: params.username, password: params.password)), pkce: cryptManager.generatePKCE(), completionHandler: completionHandler)
     }
     
     public func signInGoogle(params: VYouSignInSocialParams, completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
@@ -50,7 +50,7 @@ public final class VYou {
     
     public func signUpPassword(params: VYouSignUpPasswordParams, completionHandler: @escaping (KotlinUnit?, Error?) -> Void) {
         let password = params.password
-        let encryptedPassword = cryptManager.bCrypt(email: client.getEmail(), password: password)
+        let encryptedPassword = cryptManager.encryptPassword(email: client.getEmail(), password: password)
         return client.signUpPasswords(encryptedPassword: encryptedPassword, completionHandler: completionHandler)
     }
     

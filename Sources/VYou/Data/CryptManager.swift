@@ -11,7 +11,7 @@ internal class CryptManager {
         self.publicSalt = publicSalt
     }
     
-    internal func pkce() -> PKCE {
+    internal func generatePKCE() -> PKCE {
         let verifier = UUID().uuidString.bytes.sha1().toBase64()
             .replacingOccurrences(of: "+", with: "-")
             .replacingOccurrences(of: "/", with: "_")
@@ -23,7 +23,7 @@ internal class CryptManager {
         return PKCE(verifier: verifier, challenge: challenge)
     }
     
-    internal func bCrypt(email: String, password: String) -> String {
+    internal func encryptPassword(email: String, password: String) -> String {
         let saltBytes = "\(publicSalt)\(email)".bytes.sha512().prefix(16)
         let seed = Array<UInt8>(saltBytes)
         let salt = Bcrypt.generateSalt(cost: 12, seed: seed)
