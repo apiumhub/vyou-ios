@@ -12,13 +12,12 @@ import VYouFacebook
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        let googleHandle: Bool = (try? VYouGoogle.instance().handle(url: url)) ?? false
-        let facebookHandle: Bool = (try? VYouFacebook.instance().handle(application: app, url: url)) ?? false
+        let googleHandle: Bool = VYouGoogle.shared.handle(url: url)
+        let facebookHandle: Bool = VYouFacebook.shared.handle(application: app, url: url)
         return googleHandle && facebookHandle
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        return (try? VYouFacebook.instance().didFinishLaunchingWithOptions(application: application, didFinishLaunchingWithOptions: launchOptions)) ?? false
+        return VYouFacebook.shared.didFinishLaunchingWithOptions(application: application, didFinishLaunchingWithOptions: launchOptions)
     }
-
 }

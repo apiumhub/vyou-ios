@@ -17,21 +17,21 @@ struct SampleApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     init() {
-        let serverUrl = ProcessInfo.processInfo.environment["SERVER_URL"] ?? ""
         let clientId = ProcessInfo.processInfo.environment["CLIENT_ID"] ?? ""
+        let serverUrl = ProcessInfo.processInfo.environment["SERVER_URL"] ?? ""
+        let publicSalt = ProcessInfo.processInfo.environment["PUBLIC_SALT"] ?? ""
         let googleId = ProcessInfo.processInfo.environment["GOOGLE_CLIENT_ID"] ?? ""
-        let serverGoogleId = ProcessInfo.processInfo.environment["GOOGLE_VYOU_ID"] ?? ""
-
-        VYou.Builder(serverUrl: serverUrl, clientId: clientId)
-            .enableNetworkLogs(level: VYouLogLevel.all)
+                
+        VYou.Builder(clientId: clientId, serverUrl: serverUrl, publicSalt: publicSalt)
+            .enableNetworkLogs(level: .all)
             .addOnSignOut {
-                try? VYouGoogle.instance().signOut()
-                try? VYouFacebook.instance().signOut()
+                VYouGoogle.shared.signOut()
+                VYouFacebook.shared.signOut()
             }
-            .initialize()
+            .build()
         
-        VYouGoogle.Builder(clientId: googleId, serverClientId: serverGoogleId).initialize()
-        VYouFacebook.Builder().initialize()
+        VYouGoogle.Builder(clientId: googleId).build()
+        VYouFacebook.Builder().build()
     }
     
     var body: some Scene {

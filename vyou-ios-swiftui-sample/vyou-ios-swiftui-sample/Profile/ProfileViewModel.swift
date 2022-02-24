@@ -16,14 +16,13 @@ class ProfileViewModel: ObservableObject {
     private let disposeBag = DisposeBag()
     
     func logOut(completion: @escaping () -> Void) {
-        let client = VYou.shared.instance()
         
-        createSingle(for: client.signOutNative())
-            .subscribe { _ in
+        createSingle(for: VYou.shared.signOut())
+            .subscribe(onSuccess: { _ in
                 completion()
-            } onFailure: { error in
+            }, onFailure: { error in
                 completion()
-            }
+            })
             .disposed(by: disposeBag)
 
     }

@@ -15,10 +15,12 @@ internal class CryptManager {
         let verifier = UUID().uuidString.bytes.sha1().toBase64()
             .replacingOccurrences(of: "+", with: "-")
             .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
         
         let challenge = verifier.bytes.sha256().toBase64()
             .replacingOccurrences(of: "+", with: "-")
             .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
         
         return PKCE(verifier: verifier, challenge: challenge)
     }

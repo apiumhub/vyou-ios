@@ -7,6 +7,7 @@
 
 import Foundation
 import VYou
+import VYouCore
 import RxSwift
 import KMPNativeCoroutinesRxSwift
 
@@ -24,9 +25,8 @@ class RegisterViewModel: ObservableObject {
     func sendEmail(completion: @escaping () -> Void) {
         showProgressView = true
         let params = VYouSignUpParams(username: model.email, termsConditions: model.termsConditions, privacyPolicy: model.privacyPolicy, info: model.infoAds)
-        let client = VYou.shared.instance()
         
-        createSingle(for: client.signUpNative(params: params))
+        createSingle(for: VYou.shared.signUp(params: params))
             .subscribe { _ in
                 completion()
             } onFailure: { [weak self] error in

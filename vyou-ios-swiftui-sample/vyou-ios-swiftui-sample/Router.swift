@@ -37,7 +37,7 @@ class Router: ObservableObject {
     }
     
     private func isLogged() -> Bool {
-        return VYou.shared.instance().isLoggedIn()
+        return VYou.shared.isLoggedIn()
     }
 }
 

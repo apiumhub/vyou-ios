@@ -7,6 +7,7 @@
 
 import Foundation
 import VYou
+import VYouCore
 import UIKit
 import RxSwift
 import KMPNativeCoroutinesRxSwift
@@ -27,8 +28,7 @@ class LoginViewModel: ObservableObject {
     func login(completion: @escaping () -> Void) {
         showProgressView = true
         let params = VYouSignInParams(username: credentials.email, password: credentials.password)
-        let client = VYou.shared.instance()
-        createSingle(for: client.signInNative(params: params))
+        createSingle(for: VYou.shared.signIn(params: params))
             .subscribe { [weak self] credentials in
                 self?.showProgressView = false
                 completion()
@@ -42,8 +42,7 @@ class LoginViewModel: ObservableObject {
     func loginWithGoogle(completion: @escaping () -> Void) {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
-        guard let vYouGoogle = try? VYouGoogle.instance() else { return }
-        vYouGoogle.signIn(presenting: viewController) { credentials in
+        VYouGoogle.shared.signIn(presenting: viewController, onFailure: {_ in }) { credentials in
             completion()
         }
     }
@@ -51,8 +50,7 @@ class LoginViewModel: ObservableObject {
     func loginWithFacebook(completion: @escaping () -> Void) {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
-        guard let vYouFacebook = try? VYouFacebook.instance() else { return }
-        vYouFacebook.signIn(presenting: viewController) { credentials in
+        VYouFacebook.shared.signIn(presenting: viewController, onFailure: {_ in }) { credentials in
             completion()
         }
     }

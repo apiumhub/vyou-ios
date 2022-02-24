@@ -5,7 +5,7 @@
 	<key>FacebookDisplayName</key>
 	<string>vyou-ios-swiftui-sample</string>
 	<key>FacebookAppID</key>
-	<string>681213149893706</string>
+	<string>${FACEBOOK_ID}</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -19,7 +19,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>${GOOGLE_CLIENT_URL}</string>
+				<string>com.googleusercontent.apps.1035774343182-9d5guv7rvjn40h850e8n821j9i0e39va</string>
 			</array>
 		</dict>
 	</array>
