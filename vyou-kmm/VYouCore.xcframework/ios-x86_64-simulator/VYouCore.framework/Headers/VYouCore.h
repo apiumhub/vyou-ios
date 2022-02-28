@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class VYCKoin_coreKoin, VYCVYouLogLevel, VYCVYouError, VYCVYouCredentials, VYCVYouEditProfileParams, VYCVYouProfile, VYCKotlinUnit, NSError, VYCVYouResetPasswordParams, VYCVYouSignInParams, VYCPKCE, VYCVYouSignInSocialParams, VYCVYouSignUpParams, VYCVYouSignUpVerifyParams, VYCVYouConfig, VYCVYouCredentialsCompanion, VYCKotlinThrowable, VYCKotlinArray<T>, VYCKotlinError, VYCVYouErrorCode, VYCKotlinEnumCompanion, VYCKotlinEnum<E>, VYCKtor_client_loggingLogLevel, VYCVYouSignUpPasswordParams, VYCCredentialsDTOCompanion, VYCCredentialsDTO, VYCProfileDTOCompanion, VYCProfileDTO, VYCProfileEditDTOCompanion, VYCProfileEditDTO, VYCKtor_client_coreHttpClient, VYCKtor_client_coreHttpResponse, VYCValidation, VYCValidationParamRules, VYCValidationRule, VYCCredentialsStorageRepositoryCompanion, VYCResetPasswordDTOCompanion, VYCResetPasswordDTO, VYCKoin_coreModule, VYCKoin_coreScope, VYCKoin_coreParametersHolder, VYCKotlinLazyThreadSafetyMode, VYCKoin_coreLogger, VYCKoin_coreInstanceRegistry, VYCKoin_corePropertyRegistry, VYCKoin_coreScopeRegistry, VYCKotlinException, VYCKotlinRuntimeException, VYCKotlinIllegalStateException, VYCKtor_client_coreHttpClientEngineConfig, VYCKtor_client_coreHttpClientConfig<T>, VYCKtor_eventsEvents, VYCKtor_client_coreHttpReceivePipeline, VYCKtor_client_coreHttpRequestPipeline, VYCKtor_client_coreHttpResponsePipeline, VYCKtor_client_coreHttpSendPipeline, VYCKtor_client_coreHttpClientCall, VYCKtor_utilsGMTDate, VYCKtor_httpHttpStatusCode, VYCKtor_httpHttpProtocolVersion, VYCKoin_coreInstanceFactory<T>, VYCKotlinPair<__covariant A, __covariant B>, VYCKoin_coreScopeDSL, VYCKoin_coreSingleInstanceFactory<T>, VYCKoin_coreParametersHolderCompanion, VYCKoin_coreLevel, VYCKoin_coreScopeRegistryCompanion, VYCKotlinx_serialization_coreSerializersModule, VYCKotlinx_serialization_coreSerialKind, VYCKotlinNothing, VYCKtor_client_coreHttpRequestData, VYCKtor_client_coreHttpResponseData, VYCKotlinx_coroutines_coreCoroutineDispatcher, VYCKtor_client_coreProxyConfig, VYCKtor_utilsAttributeKey<T>, VYCKtor_eventsEventDefinition<T>, VYCKtor_utilsPipelinePhase, VYCKtor_utilsPipeline<TSubject, TContext>, VYCKtor_client_coreHttpReceivePipelinePhases, VYCKtor_client_coreHttpRequestPipelinePhases, VYCKtor_client_coreHttpRequestBuilder, VYCKtor_client_coreHttpResponsePipelinePhases, VYCKtor_client_coreHttpResponseContainer, VYCKtor_client_coreHttpSendPipelinePhases, VYCKtor_client_coreHttpClientCallCompanion, VYCKtor_utilsTypeInfo, VYCKtor_ioMemory, VYCKtor_ioChunkBuffer, VYCKotlinByteArray, VYCKtor_ioByteReadPacket, VYCKtor_utilsGMTDateCompanion, VYCKtor_utilsWeekDay, VYCKtor_utilsMonth, VYCKtor_httpHttpStatusCodeCompanion, VYCKtor_httpHttpProtocolVersionCompanion, VYCKoin_coreBeanDefinition<T>, VYCKoin_coreInstanceFactoryCompanion, VYCKoin_coreInstanceContext, VYCKtor_httpUrl, VYCKtor_httpHttpMethod, VYCKtor_httpOutgoingContent, VYCKotlinAbstractCoroutineContextElement, VYCKotlinx_coroutines_coreCoroutineDispatcherKey, VYCKtor_httpHeadersBuilder, VYCKtor_client_coreHttpRequestBuilderCompanion, VYCKtor_httpURLBuilder, VYCKtor_ioMemoryCompanion, VYCKtor_ioBufferCompanion, VYCKtor_ioBuffer, VYCKtor_ioChunkBufferCompanion, VYCKotlinByteIterator, VYCKtor_ioInputCompanion, VYCKtor_ioInput, VYCKtor_ioByteReadPacketCompanion, VYCKtor_utilsWeekDayCompanion, VYCKtor_utilsMonthCompanion, VYCKoin_coreKind, VYCKoin_coreCallbacks<T>, VYCKtor_httpUrlCompanion, VYCKtor_httpURLProtocol, VYCKtor_httpHttpMethodCompanion, VYCKtor_httpContentType, VYCKotlinCancellationException, VYCKotlinAbstractCoroutineContextKey<B, E>, VYCKtor_utilsStringValuesBuilderImpl, VYCKtor_httpURLBuilderCompanion, VYCKotlinKTypeProjection, VYCKtor_httpURLProtocolCompanion, VYCKtor_httpHeaderValueParam, VYCKtor_httpHeaderValueWithParametersCompanion, VYCKtor_httpHeaderValueWithParameters, VYCKtor_httpContentTypeCompanion, VYCKotlinKVariance, VYCKotlinKTypeProjectionCompanion, VYCKotlinx_coroutines_coreAtomicDesc, VYCKotlinx_coroutines_coreLockFreeLinkedListNodePrepareOp, VYCKotlinx_coroutines_coreAtomicOp<__contravariant T>, VYCKotlinx_coroutines_coreOpDescriptor, VYCKotlinx_coroutines_coreLockFreeLinkedListNode, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeAbstractAtomicDesc, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeAddLastDesc<T>, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeRemoveFirstDesc<T>;
+@class VYCKoin_coreKoin, VYCVYouLogLevel, VYCVYouError, VYCVYouCredentials, VYCVYouEditProfileParams, VYCVYouProfile, VYCKotlinUnit, NSError, VYCVYouResetPasswordParams, VYCVYouSignInParams, VYCPKCE, VYCVYouSignInSocialParams, VYCVYouSignUpParams, VYCVYouSignUpVerifyParams, VYCVYouConfig, VYCVYouCredentialsCompanion, VYCKotlinThrowable, VYCKotlinArray<T>, VYCKotlinError, VYCVYouErrorCode, VYCKotlinEnumCompanion, VYCKotlinEnum<E>, VYCVYouFieldDateCompanion, VYCVYouFieldDate, VYCVYouFieldEmailCompanion, VYCVYouFieldEmail, VYCVYouFieldNumberCompanion, VYCVYouFieldNumber, VYCVYouFieldTextCompanion, VYCVYouFieldText, VYCKtor_client_loggingLogLevel, VYCVYouSignUpPasswordParams, VYCCredentialsDTOCompanion, VYCCredentialsDTO, VYCProfileEditDTOCompanion, VYCProfileEditDTO, VYCKtor_client_coreHttpClient, VYCKtor_client_coreHttpResponse, VYCValidation, VYCValidationParamRules, VYCValidationRule, VYCCredentialsStorageRepositoryCompanion, VYCResetPasswordDTOCompanion, VYCResetPasswordDTO, VYCKoin_coreModule, VYCKoin_coreScope, VYCKoin_coreParametersHolder, VYCKotlinLazyThreadSafetyMode, VYCKoin_coreLogger, VYCKoin_coreInstanceRegistry, VYCKoin_corePropertyRegistry, VYCKoin_coreScopeRegistry, VYCKotlinException, VYCKotlinRuntimeException, VYCKotlinIllegalStateException, VYCKtor_client_coreHttpClientEngineConfig, VYCKtor_client_coreHttpClientConfig<T>, VYCKtor_eventsEvents, VYCKtor_client_coreHttpReceivePipeline, VYCKtor_client_coreHttpRequestPipeline, VYCKtor_client_coreHttpResponsePipeline, VYCKtor_client_coreHttpSendPipeline, VYCKtor_client_coreHttpClientCall, VYCKtor_utilsGMTDate, VYCKtor_httpHttpStatusCode, VYCKtor_httpHttpProtocolVersion, VYCKoin_coreInstanceFactory<T>, VYCKotlinPair<__covariant A, __covariant B>, VYCKoin_coreScopeDSL, VYCKoin_coreSingleInstanceFactory<T>, VYCKoin_coreParametersHolderCompanion, VYCKoin_coreLevel, VYCKoin_coreScopeRegistryCompanion, VYCKotlinx_serialization_coreSerializersModule, VYCKotlinx_serialization_coreSerialKind, VYCKotlinNothing, VYCKtor_client_coreHttpRequestData, VYCKtor_client_coreHttpResponseData, VYCKotlinx_coroutines_coreCoroutineDispatcher, VYCKtor_client_coreProxyConfig, VYCKtor_utilsAttributeKey<T>, VYCKtor_eventsEventDefinition<T>, VYCKtor_utilsPipelinePhase, VYCKtor_utilsPipeline<TSubject, TContext>, VYCKtor_client_coreHttpReceivePipelinePhases, VYCKtor_client_coreHttpRequestPipelinePhases, VYCKtor_client_coreHttpRequestBuilder, VYCKtor_client_coreHttpResponsePipelinePhases, VYCKtor_client_coreHttpResponseContainer, VYCKtor_client_coreHttpSendPipelinePhases, VYCKtor_client_coreHttpClientCallCompanion, VYCKtor_utilsTypeInfo, VYCKtor_ioMemory, VYCKtor_ioChunkBuffer, VYCKotlinByteArray, VYCKtor_ioByteReadPacket, VYCKtor_utilsGMTDateCompanion, VYCKtor_utilsWeekDay, VYCKtor_utilsMonth, VYCKtor_httpHttpStatusCodeCompanion, VYCKtor_httpHttpProtocolVersionCompanion, VYCKoin_coreBeanDefinition<T>, VYCKoin_coreInstanceFactoryCompanion, VYCKoin_coreInstanceContext, VYCKtor_httpUrl, VYCKtor_httpHttpMethod, VYCKtor_httpOutgoingContent, VYCKotlinAbstractCoroutineContextElement, VYCKotlinx_coroutines_coreCoroutineDispatcherKey, VYCKtor_httpHeadersBuilder, VYCKtor_client_coreHttpRequestBuilderCompanion, VYCKtor_httpURLBuilder, VYCKtor_ioMemoryCompanion, VYCKtor_ioBufferCompanion, VYCKtor_ioBuffer, VYCKtor_ioChunkBufferCompanion, VYCKotlinByteIterator, VYCKtor_ioInputCompanion, VYCKtor_ioInput, VYCKtor_ioByteReadPacketCompanion, VYCKtor_utilsWeekDayCompanion, VYCKtor_utilsMonthCompanion, VYCKoin_coreKind, VYCKoin_coreCallbacks<T>, VYCKtor_httpUrlCompanion, VYCKtor_httpURLProtocol, VYCKtor_httpHttpMethodCompanion, VYCKtor_httpContentType, VYCKotlinCancellationException, VYCKotlinAbstractCoroutineContextKey<B, E>, VYCKtor_utilsStringValuesBuilderImpl, VYCKtor_httpURLBuilderCompanion, VYCKotlinKTypeProjection, VYCKtor_httpURLProtocolCompanion, VYCKtor_httpHeaderValueParam, VYCKtor_httpHeaderValueWithParametersCompanion, VYCKtor_httpHeaderValueWithParameters, VYCKtor_httpContentTypeCompanion, VYCKotlinKVariance, VYCKotlinKTypeProjectionCompanion, VYCKotlinx_coroutines_coreAtomicDesc, VYCKotlinx_coroutines_coreLockFreeLinkedListNodePrepareOp, VYCKotlinx_coroutines_coreAtomicOp<__contravariant T>, VYCKotlinx_coroutines_coreOpDescriptor, VYCKotlinx_coroutines_coreLockFreeLinkedListNode, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeAbstractAtomicDesc, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeAddLastDesc<T>, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeRemoveFirstDesc<T>;
 
-@protocol VYCKoin_coreKoinComponent, VYCKotlinx_serialization_coreKSerializer, VYCKotlinComparable, VYCKotlinSuspendFunction0, VYCCredentialsRepository, VYCMultiplatform_settingsSettings, VYCKoin_coreKoinScopeComponent, VYCKoin_coreQualifier, VYCKotlinKClass, VYCKotlinLazy, VYCKotlinx_serialization_coreEncoder, VYCKotlinx_serialization_coreSerialDescriptor, VYCKotlinx_serialization_coreSerializationStrategy, VYCKotlinx_serialization_coreDecoder, VYCKotlinx_serialization_coreDeserializationStrategy, VYCKotlinIterator, VYCKotlinCoroutineContext, VYCKotlinx_coroutines_coreCoroutineScope, VYCKtor_ioCloseable, VYCKtor_client_coreHttpClientEngine, VYCKtor_client_coreHttpClientEngineCapability, VYCKtor_utilsAttributes, VYCKotlinFunction, VYCKtor_httpHeaders, VYCKtor_httpHttpMessage, VYCKtor_ioByteReadChannel, VYCKoin_coreScopeCallback, VYCKotlinKDeclarationContainer, VYCKotlinKAnnotatedElement, VYCKotlinKClassifier, VYCKotlinx_serialization_coreCompositeEncoder, VYCKotlinAnnotation, VYCKotlinx_serialization_coreCompositeDecoder, VYCKotlinCoroutineContextElement, VYCKotlinCoroutineContextKey, VYCKtor_client_coreHttpClientPlugin, VYCKotlinx_coroutines_coreDisposableHandle, VYCKotlinSuspendFunction2, VYCKotlinMapEntry, VYCKtor_utilsStringValues, VYCKtor_client_coreHttpRequest, VYCKtor_ioReadSession, VYCKotlinSuspendFunction1, VYCKotlinAppendable, VYCKotlinx_serialization_coreSerializersModuleCollector, VYCKotlinx_coroutines_coreJob, VYCKotlinContinuation, VYCKotlinContinuationInterceptor, VYCKotlinx_coroutines_coreRunnable, VYCKtor_httpHttpMessageBuilder, VYCKotlinKType, VYCKtor_ioObjectPool, VYCKtor_httpParameters, VYCKotlinx_coroutines_coreChildHandle, VYCKotlinx_coroutines_coreChildJob, VYCKotlinSequence, VYCKotlinx_coroutines_coreSelectClause0, VYCKtor_utilsStringValuesBuilder, VYCKtor_httpParametersBuilder, VYCKotlinx_coroutines_coreParentJob, VYCKotlinx_coroutines_coreSelectInstance;
+@protocol VYCKoin_coreKoinComponent, VYCKotlinx_serialization_coreKSerializer, VYCVYouField, VYCKotlinComparable, VYCKotlinSuspendFunction0, VYCCredentialsRepository, VYCMultiplatform_settingsSettings, VYCKoin_coreKoinScopeComponent, VYCKoin_coreQualifier, VYCKotlinKClass, VYCKotlinLazy, VYCKotlinx_serialization_coreEncoder, VYCKotlinx_serialization_coreSerialDescriptor, VYCKotlinx_serialization_coreSerializationStrategy, VYCKotlinx_serialization_coreDecoder, VYCKotlinx_serialization_coreDeserializationStrategy, VYCKotlinIterator, VYCKotlinCoroutineContext, VYCKotlinx_coroutines_coreCoroutineScope, VYCKtor_ioCloseable, VYCKtor_client_coreHttpClientEngine, VYCKtor_client_coreHttpClientEngineCapability, VYCKtor_utilsAttributes, VYCKotlinFunction, VYCKtor_httpHeaders, VYCKtor_httpHttpMessage, VYCKtor_ioByteReadChannel, VYCKoin_coreScopeCallback, VYCKotlinKDeclarationContainer, VYCKotlinKAnnotatedElement, VYCKotlinKClassifier, VYCKotlinx_serialization_coreCompositeEncoder, VYCKotlinAnnotation, VYCKotlinx_serialization_coreCompositeDecoder, VYCKotlinCoroutineContextElement, VYCKotlinCoroutineContextKey, VYCKtor_client_coreHttpClientPlugin, VYCKotlinx_coroutines_coreDisposableHandle, VYCKotlinSuspendFunction2, VYCKotlinMapEntry, VYCKtor_utilsStringValues, VYCKtor_client_coreHttpRequest, VYCKtor_ioReadSession, VYCKotlinSuspendFunction1, VYCKotlinAppendable, VYCKotlinx_serialization_coreSerializersModuleCollector, VYCKotlinx_coroutines_coreJob, VYCKotlinContinuation, VYCKotlinContinuationInterceptor, VYCKotlinx_coroutines_coreRunnable, VYCKtor_httpHttpMessageBuilder, VYCKotlinKType, VYCKtor_ioObjectPool, VYCKtor_httpParameters, VYCKotlinx_coroutines_coreChildHandle, VYCKotlinx_coroutines_coreChildJob, VYCKotlinSequence, VYCKotlinx_coroutines_coreSelectClause0, VYCKtor_utilsStringValuesBuilder, VYCKtor_httpParametersBuilder, VYCKotlinx_coroutines_coreParentJob, VYCKotlinx_coroutines_coreSelectInstance;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -305,13 +305,13 @@ __attribute__((swift_name("VYouCredentials.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("VYouEditProfileParams")))
 @interface VYCVYouEditProfileParams : VYCBase
-- (instancetype)initWithFields:(NSDictionary<NSString *, id> *)fields __attribute__((swift_name("init(fields:)"))) __attribute__((objc_designated_initializer));
-- (NSDictionary<NSString *, id> *)component1 __attribute__((swift_name("component1()")));
-- (VYCVYouEditProfileParams *)doCopyFields:(NSDictionary<NSString *, id> *)fields __attribute__((swift_name("doCopy(fields:)")));
+- (instancetype)initWithFields:(NSArray<id<VYCVYouField>> *)fields __attribute__((swift_name("init(fields:)"))) __attribute__((objc_designated_initializer));
+- (NSArray<id<VYCVYouField>> *)component1 __attribute__((swift_name("component1()")));
+- (VYCVYouEditProfileParams *)doCopyFields:(NSArray<id<VYCVYouField>> *)fields __attribute__((swift_name("doCopy(fields:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSDictionary<NSString *, id> *fields __attribute__((swift_name("fields")));
+@property (readonly) NSArray<id<VYCVYouField>> *fields __attribute__((swift_name("fields")));
 @end;
 
 __attribute__((swift_name("KotlinThrowable")))
@@ -338,6 +338,7 @@ __attribute__((swift_name("KotlinError")))
 - (instancetype)initWithCause:(VYCKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer));
 @end;
 
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("VYouError")))
 @interface VYCVYouError : VYCKotlinError
 - (instancetype)initWithCode:(VYCVYouErrorCode *)code message:(NSString * _Nullable)message status:(int32_t)status __attribute__((swift_name("init(code:message:status:)"))) __attribute__((objc_designated_initializer));
@@ -346,6 +347,13 @@ __attribute__((swift_name("VYouError")))
 - (instancetype)initWithMessage:(NSString * _Nullable)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (instancetype)initWithMessage:(NSString * _Nullable)message cause:(VYCKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(message:cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (instancetype)initWithCause:(VYCKotlinThrowable * _Nullable)cause __attribute__((swift_name("init(cause:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (VYCVYouErrorCode *)component1 __attribute__((swift_name("component1()")));
+- (NSString * _Nullable)component2 __attribute__((swift_name("component2()")));
+- (int32_t)component3 __attribute__((swift_name("component3()")));
+- (VYCVYouError *)doCopyCode:(VYCVYouErrorCode *)code message:(NSString * _Nullable)message status:(int32_t)status __attribute__((swift_name("doCopy(code:message:status:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) VYCVYouErrorCode *code __attribute__((swift_name("code")));
 @property (readonly) NSString * _Nullable message __attribute__((swift_name("message")));
 @property (readonly) int32_t status __attribute__((swift_name("status")));
@@ -388,6 +396,130 @@ __attribute__((swift_name("VYouErrorCode")))
 + (VYCKotlinArray<VYCVYouErrorCode *> *)values __attribute__((swift_name("values()")));
 @end;
 
+__attribute__((swift_name("VYouField")))
+@protocol VYCVYouField
+@required
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) BOOL readOnly __attribute__((swift_name("readOnly")));
+@property (readonly) BOOL required __attribute__((swift_name("required")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VYouFieldDate")))
+@interface VYCVYouFieldDate : VYCBase <VYCVYouField>
+- (instancetype)initWithValue:(VYCLong * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("init(value:name:required:readOnly:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VYCVYouFieldDateCompanion *companion __attribute__((swift_name("companion")));
+- (VYCLong * _Nullable)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (BOOL)component3 __attribute__((swift_name("component3()")));
+- (BOOL)component4 __attribute__((swift_name("component4()")));
+- (VYCVYouFieldDate *)doCopyValue:(VYCLong * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("doCopy(value:name:required:readOnly:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) BOOL readOnly __attribute__((swift_name("readOnly")));
+@property (readonly) BOOL required __attribute__((swift_name("required")));
+@property (readonly) VYCLong * _Nullable value __attribute__((swift_name("value")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VYouFieldDate.Companion")))
+@interface VYCVYouFieldDateCompanion : VYCBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VYCVYouFieldDateCompanion *shared __attribute__((swift_name("shared")));
+- (id<VYCKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VYouFieldEmail")))
+@interface VYCVYouFieldEmail : VYCBase <VYCVYouField>
+- (instancetype)initWithValue:(NSString * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("init(value:name:required:readOnly:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VYCVYouFieldEmailCompanion *companion __attribute__((swift_name("companion")));
+- (NSString * _Nullable)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (BOOL)component3 __attribute__((swift_name("component3()")));
+- (BOOL)component4 __attribute__((swift_name("component4()")));
+- (VYCVYouFieldEmail *)doCopyValue:(NSString * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("doCopy(value:name:required:readOnly:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) BOOL readOnly __attribute__((swift_name("readOnly")));
+@property (readonly) BOOL required __attribute__((swift_name("required")));
+@property (readonly) NSString * _Nullable value __attribute__((swift_name("value")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VYouFieldEmail.Companion")))
+@interface VYCVYouFieldEmailCompanion : VYCBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VYCVYouFieldEmailCompanion *shared __attribute__((swift_name("shared")));
+- (id<VYCKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VYouFieldNumber")))
+@interface VYCVYouFieldNumber : VYCBase <VYCVYouField>
+- (instancetype)initWithValue:(VYCInt * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("init(value:name:required:readOnly:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VYCVYouFieldNumberCompanion *companion __attribute__((swift_name("companion")));
+- (VYCInt * _Nullable)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (BOOL)component3 __attribute__((swift_name("component3()")));
+- (BOOL)component4 __attribute__((swift_name("component4()")));
+- (VYCVYouFieldNumber *)doCopyValue:(VYCInt * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("doCopy(value:name:required:readOnly:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) BOOL readOnly __attribute__((swift_name("readOnly")));
+@property (readonly) BOOL required __attribute__((swift_name("required")));
+@property (readonly) VYCInt * _Nullable value __attribute__((swift_name("value")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VYouFieldNumber.Companion")))
+@interface VYCVYouFieldNumberCompanion : VYCBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VYCVYouFieldNumberCompanion *shared __attribute__((swift_name("shared")));
+- (id<VYCKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VYouFieldText")))
+@interface VYCVYouFieldText : VYCBase <VYCVYouField>
+- (instancetype)initWithValue:(NSString * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("init(value:name:required:readOnly:)"))) __attribute__((objc_designated_initializer));
+@property (class, readonly, getter=companion) VYCVYouFieldTextCompanion *companion __attribute__((swift_name("companion")));
+- (NSString * _Nullable)component1 __attribute__((swift_name("component1()")));
+- (NSString *)component2 __attribute__((swift_name("component2()")));
+- (BOOL)component3 __attribute__((swift_name("component3()")));
+- (BOOL)component4 __attribute__((swift_name("component4()")));
+- (VYCVYouFieldText *)doCopyValue:(NSString * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("doCopy(value:name:required:readOnly:)")));
+- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
+- (NSUInteger)hash __attribute__((swift_name("hash()")));
+- (NSString *)description __attribute__((swift_name("description()")));
+@property (readonly) NSString *name __attribute__((swift_name("name")));
+@property (readonly) BOOL readOnly __attribute__((swift_name("readOnly")));
+@property (readonly) BOOL required __attribute__((swift_name("required")));
+@property (readonly) NSString * _Nullable value __attribute__((swift_name("value")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("VYouFieldText.Companion")))
+@interface VYCVYouFieldTextCompanion : VYCBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (class, readonly, getter=shared) VYCVYouFieldTextCompanion *shared __attribute__((swift_name("shared")));
+- (id<VYCKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
+@end;
+
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("VYouLogLevel")))
 @interface VYCVYouLogLevel : VYCKotlinEnum<VYCVYouLogLevel *>
@@ -406,18 +538,18 @@ __attribute__((swift_name("VYouLogLevel")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("VYouProfile")))
 @interface VYCVYouProfile : VYCBase
-- (instancetype)initWithId:(NSString *)id email:(NSString *)email fields:(NSDictionary<NSString *, NSString *> *)fields tenantCompliant:(BOOL)tenantCompliant tenantRoles:(NSArray<NSString *> *)tenantRoles __attribute__((swift_name("init(id:email:fields:tenantCompliant:tenantRoles:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithId:(NSString *)id email:(NSString *)email fields:(NSArray<id<VYCVYouField>> *)fields tenantCompliant:(BOOL)tenantCompliant tenantRoles:(NSArray<NSString *> *)tenantRoles __attribute__((swift_name("init(id:email:fields:tenantCompliant:tenantRoles:)"))) __attribute__((objc_designated_initializer));
 - (NSString *)component1 __attribute__((swift_name("component1()")));
 - (NSString *)component2 __attribute__((swift_name("component2()")));
-- (NSDictionary<NSString *, NSString *> *)component3 __attribute__((swift_name("component3()")));
+- (NSArray<id<VYCVYouField>> *)component3 __attribute__((swift_name("component3()")));
 - (BOOL)component4 __attribute__((swift_name("component4()")));
 - (NSArray<NSString *> *)component5 __attribute__((swift_name("component5()")));
-- (VYCVYouProfile *)doCopyId:(NSString *)id email:(NSString *)email fields:(NSDictionary<NSString *, NSString *> *)fields tenantCompliant:(BOOL)tenantCompliant tenantRoles:(NSArray<NSString *> *)tenantRoles __attribute__((swift_name("doCopy(id:email:fields:tenantCompliant:tenantRoles:)")));
+- (VYCVYouProfile *)doCopyId:(NSString *)id email:(NSString *)email fields:(NSArray<id<VYCVYouField>> *)fields tenantCompliant:(BOOL)tenantCompliant tenantRoles:(NSArray<NSString *> *)tenantRoles __attribute__((swift_name("doCopy(id:email:fields:tenantCompliant:tenantRoles:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSString *email __attribute__((swift_name("email")));
-@property (readonly) NSDictionary<NSString *, NSString *> *fields __attribute__((swift_name("fields")));
+@property (readonly) NSArray<id<VYCVYouField>> *fields __attribute__((swift_name("fields")));
 @property (readonly) NSString *id __attribute__((swift_name("id")));
 @property (readonly) BOOL tenantCompliant __attribute__((swift_name("tenantCompliant")));
 @property (readonly) NSArray<NSString *> *tenantRoles __attribute__((swift_name("tenantRoles")));
@@ -542,48 +674,16 @@ __attribute__((swift_name("CredentialsDTO.Companion")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ProfileDTO")))
-@interface VYCProfileDTO : VYCBase
-- (instancetype)initWithId:(NSString *)id email:(NSString *)email fields:(NSDictionary<NSString *, NSString *> *)fields tenantCompliant:(BOOL)tenantCompliant tenantRoles:(NSArray<NSString *> *)tenantRoles __attribute__((swift_name("init(id:email:fields:tenantCompliant:tenantRoles:)"))) __attribute__((objc_designated_initializer));
-@property (class, readonly, getter=companion) VYCProfileDTOCompanion *companion __attribute__((swift_name("companion")));
-- (NSString *)component1 __attribute__((swift_name("component1()")));
-- (NSString *)component2 __attribute__((swift_name("component2()")));
-- (NSDictionary<NSString *, NSString *> *)component3 __attribute__((swift_name("component3()")));
-- (BOOL)component4 __attribute__((swift_name("component4()")));
-- (NSArray<NSString *> *)component5 __attribute__((swift_name("component5()")));
-- (VYCProfileDTO *)doCopyId:(NSString *)id email:(NSString *)email fields:(NSDictionary<NSString *, NSString *> *)fields tenantCompliant:(BOOL)tenantCompliant tenantRoles:(NSArray<NSString *> *)tenantRoles __attribute__((swift_name("doCopy(id:email:fields:tenantCompliant:tenantRoles:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (VYCVYouProfile *)toDomain __attribute__((swift_name("toDomain()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *email __attribute__((swift_name("email")));
-@property (readonly) NSDictionary<NSString *, NSString *> *fields __attribute__((swift_name("fields")));
-@property (readonly) NSString *id __attribute__((swift_name("id")));
-@property (readonly) BOOL tenantCompliant __attribute__((swift_name("tenantCompliant")));
-@property (readonly) NSArray<NSString *> *tenantRoles __attribute__((swift_name("tenantRoles")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("ProfileDTO.Companion")))
-@interface VYCProfileDTOCompanion : VYCBase
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-+ (instancetype)companion __attribute__((swift_name("init()")));
-@property (class, readonly, getter=shared) VYCProfileDTOCompanion *shared __attribute__((swift_name("shared")));
-- (id<VYCKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ProfileEditDTO")))
 @interface VYCProfileEditDTO : VYCBase
-- (instancetype)initWithFields:(NSDictionary<NSString *, NSString *> *)fields __attribute__((swift_name("init(fields:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithFields:(NSDictionary<NSString *, id> *)fields __attribute__((swift_name("init(fields:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VYCProfileEditDTOCompanion *companion __attribute__((swift_name("companion")));
-- (NSDictionary<NSString *, NSString *> *)component1 __attribute__((swift_name("component1()")));
-- (VYCProfileEditDTO *)doCopyFields:(NSDictionary<NSString *, NSString *> *)fields __attribute__((swift_name("doCopy(fields:)")));
+- (NSDictionary<NSString *, id> *)component1 __attribute__((swift_name("component1()")));
+- (VYCProfileEditDTO *)doCopyFields:(NSDictionary<NSString *, id> *)fields __attribute__((swift_name("doCopy(fields:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSDictionary<NSString *, NSString *> *fields __attribute__((swift_name("fields")));
+@property (readonly) NSDictionary<NSString *, id> *fields __attribute__((swift_name("fields")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -594,7 +694,6 @@ __attribute__((swift_name("ProfileEditDTO.Companion")))
 + (instancetype)companion __attribute__((swift_name("init()")));
 @property (class, readonly, getter=shared) VYCProfileEditDTOCompanion *shared __attribute__((swift_name("shared")));
 - (VYCProfileEditDTO *)fromParams:(VYCVYouEditProfileParams *)params __attribute__((swift_name("from(params:)")));
-- (id<VYCKotlinx_serialization_coreKSerializer>)serializer __attribute__((swift_name("serializer()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
