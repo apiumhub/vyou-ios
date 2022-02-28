@@ -466,20 +466,20 @@ __attribute__((swift_name("VYouFieldEmail.Companion")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("VYouFieldNumber")))
 @interface VYCVYouFieldNumber : VYCBase <VYCVYouField>
-- (instancetype)initWithValue:(VYCInt * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("init(value:name:required:readOnly:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithValue:(VYCDouble * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("init(value:name:required:readOnly:)"))) __attribute__((objc_designated_initializer));
 @property (class, readonly, getter=companion) VYCVYouFieldNumberCompanion *companion __attribute__((swift_name("companion")));
-- (VYCInt * _Nullable)component1 __attribute__((swift_name("component1()")));
+- (VYCDouble * _Nullable)component1 __attribute__((swift_name("component1()")));
 - (NSString *)component2 __attribute__((swift_name("component2()")));
 - (BOOL)component3 __attribute__((swift_name("component3()")));
 - (BOOL)component4 __attribute__((swift_name("component4()")));
-- (VYCVYouFieldNumber *)doCopyValue:(VYCInt * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("doCopy(value:name:required:readOnly:)")));
+- (VYCVYouFieldNumber *)doCopyValue:(VYCDouble * _Nullable)value name:(NSString *)name required:(BOOL)required readOnly:(BOOL)readOnly __attribute__((swift_name("doCopy(value:name:required:readOnly:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSString *name __attribute__((swift_name("name")));
 @property (readonly) BOOL readOnly __attribute__((swift_name("readOnly")));
 @property (readonly) BOOL required __attribute__((swift_name("required")));
-@property (readonly) VYCInt * _Nullable value __attribute__((swift_name("value")));
+@property (readonly) VYCDouble * _Nullable value __attribute__((swift_name("value")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
