@@ -78,15 +78,13 @@ public final class VYou {
     public class Builder {
         let clientId: String
         let serverUrl: String
-        let publicSalt: String
         var networkLogLevel: VYouLogLevel = .none
         var onRefreshTokenFailure: (VYouError) -> Void = {_ in }
         var onSignOut: () -> Void = {}
         
-        public init(clientId: String, serverUrl: String, publicSalt: String) {
+        public init(clientId: String, serverUrl: String) {
             self.clientId = clientId
             self.serverUrl = serverUrl
-            self.publicSalt = publicSalt
         }
         
         public func enableNetworkLogs(level: VYouLogLevel) -> Builder {
@@ -106,7 +104,7 @@ public final class VYou {
         
         public func build() {
             let client = VYouClient(clientId: clientId, serverUrl: serverUrl, networkLogLevel: networkLogLevel, onRefreshTokenFailure: onRefreshTokenFailure, onSignOut: onSignOut)
-            shared = VYou(client: client, cryptManager: CryptManager(publicSalt: publicSalt))
+            shared = VYou(client: client, cryptManager: CryptManager(publicSalt: client.getSalt()))
         }
     }
     
