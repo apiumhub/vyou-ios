@@ -176,7 +176,6 @@ __attribute__((swift_name("VYouClient")))
 */
 - (void)getProfileWithCompletionHandler:(void (^)(VYCVYouProfile * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("getProfile(completionHandler:)")));
 - (VYCKotlinUnit *(^(^)(VYCKotlinUnit *(^)(VYCVYouProfile *, VYCKotlinUnit *), VYCKotlinUnit *(^)(NSError *, VYCKotlinUnit *)))(void))getProfileNative __attribute__((swift_name("getProfileNative()")));
-- (NSString *)getSalt __attribute__((swift_name("getSalt()")));
 - (NSString *)getTokenType __attribute__((swift_name("getTokenType()")));
 - (BOOL)isLoggedIn __attribute__((swift_name("isLoggedIn()")));
 - (BOOL)isValidToken __attribute__((swift_name("isValidToken()")));
@@ -250,13 +249,6 @@ __attribute__((swift_name("VYouClient")))
 */
 - (void)signUpVerifyParams:(VYCVYouSignUpVerifyParams *)params completionHandler:(void (^)(VYCKotlinUnit * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("signUpVerify(params:completionHandler:)")));
 - (VYCKotlinUnit *(^(^)(VYCKotlinUnit *(^)(VYCKotlinUnit *, VYCKotlinUnit *), VYCKotlinUnit *(^)(NSError *, VYCKotlinUnit *)))(void))signUpVerifyNativeParams:(VYCVYouSignUpVerifyParams *)params __attribute__((swift_name("signUpVerifyNative(params:)")));
-
-/**
- @note This method converts instances of VYouError, CancellationException to errors.
- Other uncaught Kotlin exceptions are fatal.
-*/
-- (void)updateSaltWithCompletionHandler:(void (^)(VYCKotlinUnit * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("updateSalt(completionHandler:)")));
-- (VYCKotlinUnit *(^(^)(VYCKotlinUnit *(^)(VYCKotlinUnit *, VYCKotlinUnit *), VYCKotlinUnit *(^)(NSError *, VYCKotlinUnit *)))(void))updateSaltNative __attribute__((swift_name("updateSaltNative()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

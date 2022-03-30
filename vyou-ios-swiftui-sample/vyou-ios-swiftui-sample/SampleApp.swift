@@ -17,12 +17,13 @@ struct SampleApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     init() {
-        let clientId = ProcessInfo.processInfo.environment["CLIENT_ID"] ?? ""
-        let serverUrl = ProcessInfo.processInfo.environment["SERVER_URL"] ?? ""
-        let publicSalt = ProcessInfo.processInfo.environment["PUBLIC_SALT"] ?? ""
+//        let clientId = ProcessInfo.processInfo.environment["CLIENT_ID"] ?? ""
+//        let serverUrl = ProcessInfo.processInfo.environment["SERVER_URL"] ?? ""
+        let clientId = "0QAb3YYjFgAtLG8xWQmZosrVaJDJBbPKvPtDgbHe5v5YjMGXVjleh6SGCQ"
+        let serverUrl = "https://gsas.vyou-dev.com:6120"
         let googleId = ProcessInfo.processInfo.environment["GOOGLE_CLIENT_ID"] ?? ""
                 
-        VYou.Builder(clientId: clientId, serverUrl: serverUrl, publicSalt: publicSalt)
+        VYou.Builder(clientId: clientId, serverUrl: serverUrl)
             .enableNetworkLogs(level: .all)
             .addOnSignOut {
                 VYouGoogle.shared.signOut()

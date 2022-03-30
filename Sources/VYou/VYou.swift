@@ -25,8 +25,7 @@ public final class VYou {
     public func tokenType() -> String{ return client.getTokenType() }
     
     public func signIn(params: VYouSignInParams, completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
-        client.updateSalt(completionHandler: { _, _ in })
-        return client.signIn(params: params.doCopy(username: params.username, password: cryptManager.encryptPassword(email: params.username, password: params.password, salt: client.getSalt())), pkce: cryptManager.generatePKCE(), completionHandler: completionHandler)
+        return client.signIn(params: params.doCopy(username: params.username, password: cryptManager.encryptPassword(email: params.username, password: params.password)), pkce: cryptManager.generatePKCE(), completionHandler: completionHandler)
     }
     
     public func signInGoogle(params: VYouSignInSocialParams, completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
@@ -51,8 +50,7 @@ public final class VYou {
     
     public func signUpPassword(params: VYouSignUpPasswordParams, completionHandler: @escaping (KotlinUnit?, Error?) -> Void) {
         let password = params.password
-        client.updateSalt(completionHandler: { _, _ in })
-        let encryptedPassword = cryptManager.encryptPassword(email: client.getEmail(), password: password, salt: client.getSalt())
+        let encryptedPassword = cryptManager.encryptPassword(email: client.getEmail(), password: password)
         return client.signUpPasswords(encryptedPassword: encryptedPassword, completionHandler: completionHandler)
     }
     
@@ -80,13 +78,15 @@ public final class VYou {
     public class Builder {
         let clientId: String
         let serverUrl: String
+        let publicSaltBase64: String
         var networkLogLevel: VYouLogLevel = .none
         var onRefreshTokenFailure: (VYouError) -> Void = {_ in }
         var onSignOut: () -> Void = {}
         
-        public init(clientId: String, serverUrl: String) {
+        public init(clientId: String, serverUrl: String, publicSaltBase64: String) {
             self.clientId = clientId
             self.serverUrl = serverUrl
+            self.publicSaltBase64 = publicSaltBase64
         }
         
         public func enableNetworkLogs(level: VYouLogLevel) -> Builder {
@@ -105,7 +105,7 @@ public final class VYou {
         }
         
         public func build() {
-            shared = VYou(client: VYouClient(clientId: clientId, serverUrl: serverUrl, networkLogLevel: networkLogLevel, onRefreshTokenFailure: onRefreshTokenFailure, onSignOut: onSignOut), cryptManager: CryptManager())
+            shared = VYou(client: VYouClient(clientId: clientId, serverUrl: serverUrl, networkLogLevel: networkLogLevel, onRefreshTokenFailure: onRefreshTokenFailure, onSignOut: onSignOut), cryptManager: CryptManager(publicSaltBase64: publicSaltBase64))
         }
     }
     
