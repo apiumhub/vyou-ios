@@ -10,6 +10,7 @@ import VYouCore
 
 extension VYou {
     public func signIn(params: VYouSignInParams) -> (@escaping (VYouCredentials, KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
+        client.updateSalt(completionHandler: { _, _ in })
         return client.signInNative(params: params.doCopy(username: params.username, password: cryptManager.encryptPassword(email: params.username, password: params.password, salt: client.getSalt())), pkce: cryptManager.generatePKCE())
     }
     
@@ -35,6 +36,7 @@ extension VYou {
     
     public func signUpPassword(params: VYouSignUpPasswordParams) -> (@escaping (KotlinUnit, KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
         let password = params.password
+        client.updateSalt(completionHandler: { _, _ in })
         let encryptedPassword = cryptManager.encryptPassword(email: client.getEmail(), password: password, salt: client.getSalt())
         return client.signUpPasswordsNative(encryptedPassword: encryptedPassword)
     }

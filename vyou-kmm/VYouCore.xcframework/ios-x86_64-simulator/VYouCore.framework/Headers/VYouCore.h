@@ -250,6 +250,13 @@ __attribute__((swift_name("VYouClient")))
 */
 - (void)signUpVerifyParams:(VYCVYouSignUpVerifyParams *)params completionHandler:(void (^)(VYCKotlinUnit * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("signUpVerify(params:completionHandler:)")));
 - (VYCKotlinUnit *(^(^)(VYCKotlinUnit *(^)(VYCKotlinUnit *, VYCKotlinUnit *), VYCKotlinUnit *(^)(NSError *, VYCKotlinUnit *)))(void))signUpVerifyNativeParams:(VYCVYouSignUpVerifyParams *)params __attribute__((swift_name("signUpVerifyNative(params:)")));
+
+/**
+ @note This method converts instances of VYouError, CancellationException to errors.
+ Other uncaught Kotlin exceptions are fatal.
+*/
+- (void)updateSaltWithCompletionHandler:(void (^)(VYCKotlinUnit * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("updateSalt(completionHandler:)")));
+- (VYCKotlinUnit *(^(^)(VYCKotlinUnit *(^)(VYCKotlinUnit *, VYCKotlinUnit *), VYCKotlinUnit *(^)(NSError *, VYCKotlinUnit *)))(void))updateSaltNative __attribute__((swift_name("updateSaltNative()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -385,6 +392,7 @@ __attribute__((swift_name("VYouErrorCode")))
 + (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 @property (class, readonly) VYCVYouErrorCode *credentials __attribute__((swift_name("credentials")));
+@property (class, readonly) VYCVYouErrorCode *salt __attribute__((swift_name("salt")));
 @property (class, readonly) VYCVYouErrorCode *initialize_ __attribute__((swift_name("initialize_")));
 @property (class, readonly) VYCVYouErrorCode *instance __attribute__((swift_name("instance")));
 @property (class, readonly) VYCVYouErrorCode *loginSocialCanceled __attribute__((swift_name("loginSocialCanceled")));
@@ -948,7 +956,7 @@ __attribute__((swift_name("BackendRepository")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("BackendNetworkRepository")))
 @interface VYCBackendNetworkRepository : VYCBase <VYCBackendRepository>
-- (instancetype)initWithClient:(VYCNetworkClient *)client repository:(id<VYCCredentialsRepository>)repository __attribute__((swift_name("init(client:repository:)"))) __attribute__((objc_designated_initializer));
+- (instancetype)initWithClient:(VYCNetworkClient *)client repository:(id<VYCCredentialsRepository>)repository config:(VYCVYouConfig *)config __attribute__((swift_name("init(client:repository:config:)"))) __attribute__((objc_designated_initializer));
 
 /**
  @note This method converts instances of CancellationException to errors.
