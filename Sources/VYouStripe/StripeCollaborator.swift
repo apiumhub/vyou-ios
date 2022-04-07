@@ -3,7 +3,7 @@ import Stripe
 import UIKit
 
 class StripeCollaborator {
-    func presentPayment(from: UIViewController, secret: String, onFailure: @escaping (Error) -> Unit, onSuccess: @escaping (Bool) -> Unit) {
+    func presentPayment(from: UIViewController, secret: String, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (Bool) -> Void) {
         var configuration = PaymentSheet.Configuration()
         configuration.merchantDisplayName = "VYou Test"
         let paymentSheet = PaymentSheet(paymentIntentClientSecret: secret, configuration: configuration)

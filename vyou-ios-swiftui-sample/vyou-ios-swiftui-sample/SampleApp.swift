@@ -10,7 +10,7 @@ import SwiftUI
 import VYou
 import VYouGoogle
 import VYouFacebook
-//import VYouStripe
+import VYouStripe
 
 @main
 struct SampleApp: App {
@@ -34,7 +34,7 @@ struct SampleApp: App {
         
         VYouGoogle.Builder(clientId: googleId).build()
         VYouFacebook.Builder().build()
-//        VYouStripe.Builder(publishableKey: stripePublishableKey).build()
+        VYouStripe.Builder(publishableKey: stripePublishableKey).build()
     }
     
     var body: some Scene {

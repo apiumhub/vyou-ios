@@ -13,7 +13,7 @@ public final class VYouStripe {
         collaborator = StripeCollaborator()
     }
     
-    public func createPayment(presenting: UIViewController, params: VYouPaymentParams, onFailure: @escaping (Error) -> Unit, onSuccess: @escaping (Bool) -> Unit) {
+    public func createPayment(presenting: UIViewController, params: VYouPaymentParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (Bool) -> Void) {
         VYou.shared.createPayment(params: params) { [weak self] (secret, error) in
             if let error = error {
                 onFailure(error)
@@ -27,7 +27,7 @@ public final class VYouStripe {
         }
     }
     
-    public func createAnonymousPayment(presenting: UIViewController, params: VYouPaymentParams, onFailure: @escaping (Error) -> Unit, onSuccess: @escaping (Bool) -> Unit) {
+    public func createAnonymousPayment(presenting: UIViewController, params: VYouPaymentParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (Bool) -> Void) {
         VYou.shared.createAnonymousPayment(params: params) { [weak self] (secret, error) in
             if let error = error {
                 onFailure(error)
@@ -41,7 +41,7 @@ public final class VYouStripe {
         }
     }
     
-    public func createSubscription(presenting: UIViewController, params: VYouSubscriptionParams, onFailure: @escaping (Error) -> Unit, onSuccess: @escaping (Bool) -> Unit) {
+    public func createSubscription(presenting: UIViewController, params: VYouSubscriptionParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (Bool) -> Void) {
         VYou.shared.createSubscription(params: params) { [weak self] (secret, error) in
             if let error = error {
                 onFailure(error)
