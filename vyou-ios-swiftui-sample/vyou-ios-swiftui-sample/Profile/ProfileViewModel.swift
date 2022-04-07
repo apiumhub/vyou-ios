@@ -33,12 +33,6 @@ class ProfileViewModel: ObservableObject {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
         let params = VYouPaymentParams(amount: 400)
-        VYouStripe.shared.createPayment(presenting: viewController, params: params) { error in
-            
-        } onSuccess: { result in
-            
-        }
-
         VYouStripe.shared.createPayment(presenting: viewController, params: params, onFailure: { _ in }) { _ in }
     }
 }
