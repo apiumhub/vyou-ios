@@ -47,4 +47,6 @@ enum Screen {
     case forgotPassword
     case register
     case profile
+    case products
+    case subscriptions
 }

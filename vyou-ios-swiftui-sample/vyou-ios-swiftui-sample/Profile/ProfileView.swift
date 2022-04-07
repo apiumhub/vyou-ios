@@ -16,6 +16,24 @@ struct ProfileView: View {
         NavigationView {
             VStack {
                 Text("Authorized")
+                Divider()
+                .padding(.bottom, 20)
+                Button("Pay") {
+                    profileVM.pay()
+                }
+                .padding(.bottom, 20)
+                Divider()
+                .padding(.bottom, 20)
+                Button("Show products") {
+                    router.cleanOpen(.products)
+                }
+                .padding(.bottom, 20)
+                Divider()
+                .padding(.bottom, 20)
+                Button("My subscriptions") {
+                    router.cleanOpen(.subscriptions)
+                }
+                .padding(.bottom, 20)
             }
             .padding()
             .navigationTitle("Profile")

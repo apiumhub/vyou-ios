@@ -48,6 +48,12 @@ struct LoginView: View {
                     }
                 }
                 .padding(.bottom, 20)
+                Divider()
+                .padding(.bottom, 20)
+                Button("Pay anonymously") {
+                    loginVM.payAnonymously()
+                }
+                .padding(.bottom, 20)
             }
             Spacer()
         }

@@ -13,6 +13,7 @@ import RxSwift
 import KMPNativeCoroutinesRxSwift
 import VYouGoogle
 import VYouFacebook
+//import VYouStripe
 
 class LoginViewModel: ObservableObject {
     @Published var credentials = LoginCredentials()
@@ -53,6 +54,13 @@ class LoginViewModel: ObservableObject {
         VYouFacebook.shared.signIn(presenting: viewController, onFailure: {_ in }) { credentials in
             completion()
         }
+    }
+    
+    func payAnonymously() {
+        guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
+        
+//        let params = VYouPaymentParams(amount: 200)
+//        VYouStripe.shared.createAnonymousPayment(presenting: viewController, params: params, onFailure: { _ in }, onSuccess: { })
     }
 }
 
