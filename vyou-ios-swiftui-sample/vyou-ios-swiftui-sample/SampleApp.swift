@@ -44,8 +44,8 @@ struct SampleApp: App {
             case .forgotPassword: LoginView()
             case .register: RegisterView().environmentObject(router)
             case .profile: ProfileView().environmentObject(router)
-            case .products: ProfileView().environmentObject(router)
-            case .subscriptions: ProfileView().environmentObject(router)
+            case .products: ProductsView().environmentObject(router)
+            case .subscriptions: SubscriptionsView().environmentObject(router)
             }
         }
     }

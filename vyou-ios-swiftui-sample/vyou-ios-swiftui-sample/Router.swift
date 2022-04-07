@@ -30,9 +30,9 @@ class Router: ObservableObject {
     }
     
     func back() {
-        guard let screen = backStack.popLast() else { return }
+        backStack.popLast()
         withAnimation {
-            self.screen = screen
+            self.screen = backStack.last ?? Screen.profile
         }
     }
     

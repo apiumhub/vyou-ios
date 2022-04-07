@@ -25,13 +25,13 @@ struct ProfileView: View {
                 Divider()
                 .padding(.bottom, 20)
                 Button("Show products") {
-                    router.cleanOpen(.products)
+                    router.open(.products)
                 }
                 .padding(.bottom, 20)
                 Divider()
                 .padding(.bottom, 20)
                 Button("My subscriptions") {
-                    router.cleanOpen(.subscriptions)
+                    router.open(.subscriptions)
                 }
                 .padding(.bottom, 20)
             }
