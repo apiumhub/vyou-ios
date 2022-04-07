@@ -10,7 +10,8 @@ let package = Package(
         .library(name: "VYou", targets: ["VYou"]),
         .library(name: "VYouApple", targets: ["VYouApple"]),
         .library(name: "VYouFacebook", targets: ["VYouFacebook"]),
-        .library(name: "VYouGoogle", targets: ["VYouGoogle"])
+        .library(name: "VYouGoogle", targets: ["VYouGoogle"]),
+        .library(name: "VYouStripe", targets: ["VYouStripe"])
     ],
     dependencies: [
             // Dependencies declare other packages that this package depends on.
@@ -19,6 +20,7 @@ let package = Package(
             .package(url: "https://github.com/google/GoogleSignIn-iOS.git", .upToNextMajor(from: "6.0.2")),
             .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", .upToNextMajor(from: "1.0.0")),
             .package(url: "https://github.com/raeve/bcrypt-sp.git", .upToNextMajor(from: "1.0.0")),
+            .package(url: "https://github.com/stripe/stripe-ios", .upToNextMajor(from: "22.1.0"))
         ],
     targets: [
         .binaryTarget(
@@ -51,6 +53,14 @@ let package = Package(
                 .product(name: "GoogleSignIn", package: "GoogleSignIn-iOS")
             ],
             path: "Sources/VYouGoogle"
+        ),
+        .target(
+            name: "VYouStripe",
+            dependencies: [
+                "VYou",
+                .product(name: "Stripe", package: "stripe-ios")
+            ],
+            path: "Sources/VYouStripe"
         ),
         .testTarget(
             name: "VYouTests",

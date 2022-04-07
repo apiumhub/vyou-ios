@@ -29,49 +29,73 @@ public final class VYou {
     }
     
     public func signInGoogle(params: VYouSignInSocialParams, completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
-        return client.signInGoogle(params: params, completionHandler: completionHandler)
+        client.signInGoogle(params: params, completionHandler: completionHandler)
     }
     
     public func signInApple(params: VYouSignInSocialParams, completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
-        return client.signInApple(params: params, completionHandler: completionHandler)
+        client.signInApple(params: params, completionHandler: completionHandler)
     }
     
     public func signInFacebook(params: VYouSignInSocialParams, completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
-        return client.signInFacebook(params: params, completionHandler: completionHandler)
+        client.signInFacebook(params: params, completionHandler: completionHandler)
     }
     
     public func signUp(params: VYouSignUpParams, completionHandler: @escaping (KotlinUnit?, Error?) -> Void) {
-        return client.signUp(params: params, completionHandler: completionHandler)
+        client.signUp(params: params, completionHandler: completionHandler)
     }
     
     public func signUpVerify(params: VYouSignUpVerifyParams, completionHandler: @escaping (KotlinUnit?, Error?) -> Void) {
-        return client.signUpVerify(params: params, completionHandler: completionHandler)
+        client.signUpVerify(params: params, completionHandler: completionHandler)
     }
     
     public func signUpPassword(params: VYouSignUpPasswordParams, completionHandler: @escaping (KotlinUnit?, Error?) -> Void) {
         let password = params.password
         let encryptedPassword = cryptManager.encryptPassword(email: client.getEmail(), password: password)
-        return client.signUpPasswords(encryptedPassword: encryptedPassword, completionHandler: completionHandler)
+        client.signUpPasswords(encryptedPassword: encryptedPassword, completionHandler: completionHandler)
     }
     
     public func signOut(completionHandler: @escaping (KotlinUnit?, Error?) -> Void) {
-        return client.signOut(completionHandler: completionHandler)
+        client.signOut(completionHandler: completionHandler)
     }
     
     public func resetPassword(params: VYouResetPasswordParams, completionHandler: @escaping (KotlinUnit?, Error?) -> Void) {
-        return client.resetPassword(params: params, completionHandler: completionHandler)
+        client.resetPassword(params: params, completionHandler: completionHandler)
     }
     
     public func refreshToken(completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
-        return client.refreshToken(completionHandler: completionHandler)
+        client.refreshToken(completionHandler: completionHandler)
     }
     
     public func getProfile(completionHandler: @escaping (VYouProfile?, Error?) -> Void) {
-        return client.getProfile(completionHandler: completionHandler)
+        client.getProfile(completionHandler: completionHandler)
     }
     
     public func editProfile(params: VYouEditProfileParams, completionHandler: @escaping (VYouProfile?, Error?) -> Void) {
-        return client.editProfile(params: params, completionHandler: completionHandler)
+        client.editProfile(params: params, completionHandler: completionHandler)
+    }
+    
+    public func createPayment(params: VYouPaymentParams, completionHandler: @escaping (String?, Error?) -> Void) {
+        client.createPayment(params: params, completionHandler: completionHandler)
+    }
+    
+    public func createAnonymousPayment(params: VYouPaymentParams, completionHandler: @escaping (String?, Error?) -> Void) {
+        client.createAnonymousPayment(params: params, completionHandler: completionHandler)
+    }
+    
+    public func subscriptionProducts(completionHandler: @escaping ([VYouProduct]?, Error?) -> Void) {
+        client.subscriptionProducts(completionHandler: completionHandler)
+    }
+    
+    public func createSubscription(params: VYouSubscriptionParams, completionHandler: @escaping (String?, Error?) -> Void) {
+        client.createSubscription(params: params, completionHandler: completionHandler)
+    }
+    
+    public func mySubscriptions(completionHandler: @escaping ([VYouSubscription]?, Error?) -> Void) {
+        client.mySubscriptions(completionHandler: completionHandler)
+    }
+    
+    public func cancelSubscription(params: VYouSubscriptionCancelParams, completionHandler: @escaping (KotlinUnit?, Error?) -> Void) {
+        client.cancelSubscription(params: params, completionHandler: completionHandler)
     }
     
     

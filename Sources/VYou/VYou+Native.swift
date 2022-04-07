@@ -58,4 +58,28 @@ extension VYou {
     public func editProfile(params: VYouEditProfileParams) -> (@escaping (VYouProfile, KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
         return client.editProfileNative(params: params)
     }
+    
+    public func createPayment(params: VYouPaymentParams) -> (@escaping (String, KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
+        return client.createPaymentNative(params: params)
+    }
+    
+    public func createAnonymousPayment(params: VYouPaymentParams) -> (@escaping (String, KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
+        return client.createAnonymousPaymentNative(params: params)
+    }
+    
+    public func subscriptionProducts() -> (@escaping ([VYouProduct], KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
+        return client.subscriptionProductsNative()
+    }
+    
+    public func createSubscription(params: VYouSubscriptionParams) -> (@escaping (String, KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
+        return client.createSubscriptionNative(params: params)
+    }
+    
+    public func mySubscriptions() -> (@escaping ([VYouSubscription], KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
+        return client.mySubscriptionsNative()
+    }
+    
+    public func cancelSubscription(params: VYouSubscriptionCancelParams) -> (@escaping (KotlinUnit, KotlinUnit) -> KotlinUnit, @escaping (Error, KotlinUnit) -> KotlinUnit) -> () -> KotlinUnit {
+        return client.cancelSubscriptionNative(params: params)
+    }
 }
