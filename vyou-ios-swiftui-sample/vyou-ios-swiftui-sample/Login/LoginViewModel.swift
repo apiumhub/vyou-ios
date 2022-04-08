@@ -60,7 +60,7 @@ class LoginViewModel: ObservableObject {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
         let params = VYouPaymentParams(amount: 200)
-        VYouStripe.shared.createAnonymousPayment(presenting: viewController, params: params, onFailure: { _ in }, onSuccess: { _ in })
+        VYouStripe.shared.createAnonymousPayment(presenting: viewController, params: params, onFailure: { _ in }, onSuccess: { })
     }
 }
 

@@ -34,7 +34,7 @@ struct SampleApp: App {
         
         VYouGoogle.Builder(clientId: googleId).build()
         VYouFacebook.Builder().build()
-        VYouStripe.Builder(publishableKey: stripePublishableKey).build()
+        VYouStripe.Builder(publishableKey: stripePublishableKey, merchantDisplayName: "Sample").build()
     }
     
     var body: some Scene {

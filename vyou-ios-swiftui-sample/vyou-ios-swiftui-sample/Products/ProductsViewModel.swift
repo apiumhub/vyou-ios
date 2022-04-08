@@ -37,7 +37,7 @@ class ProductsViewModel: ObservableObject {
         
         let params = VYouSubscriptionParams(priceId: priceId)
         
-        VYouStripe.shared.createSubscription(presenting: viewController, params: params, onFailure: { _ in }, onSuccess: { _ in })
+        VYouStripe.shared.createSubscription(presenting: viewController, params: params, onFailure: { _ in }, onSuccess: { })
     }
 }
 
