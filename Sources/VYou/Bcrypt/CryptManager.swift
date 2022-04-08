@@ -2,7 +2,6 @@ import CommonCrypto
 import CryptoSwift
 import Foundation
 import VYouCore
-import Bcrypt
 
 internal class CryptManager {
     let publicSaltBase64: String
