@@ -1,4 +1,4 @@
-# iOS SDK for [VYou](https://www.vyou-app.com/) (🚧 Work in progress)
+# iOS SDK for [VYou](https://www.vyou-app.com/)
 
 This is the iOS SDK for [VYou](https://www.vyou-app.com/), a service to provide user identity to your applications. This library includes a client SDK along some artifacts and a sample to agilize your workflow.
 
@@ -12,10 +12,11 @@ The SDK consist of various artifacts:
 - [iOS-Apple](#integration-with-social-libraries): Library to sign in/up in VYou through Apple libraries.
 - [iOS-Google](#integration-with-social-libraries): Library to sign in/up in VYou through Google libraries.
 - [iOS-Facebook](#integration-with-social-libraries): Library to sign in/up in VYou through Facebook libraries.
+- [iOS-Stripe](#integration-with-payment-methods): Library to make payments and subscriptions through Stripe.
 
 Additionally, we created an [application sample](https://github.com/apiumhub/vyou-ios/blob/main/vyou-ios-swiftui-sample) using SwiftUI to check how can be implemented each artifact.
 
-# iOS (Client)
+# Client
 
 ## Installation
 
@@ -68,7 +69,7 @@ builder.addOnSignOut {
 }
 ```
 
-Even if you use the optional functions or not, to finally initialize the client you need to invoke the`build` function of the builder.
+Even if you use the optional functions or not, to finally initialize the client you need to invoke the `build` function of the builder.
 
 ```swift
 builder.build()
@@ -229,6 +230,61 @@ VYou.shared.editProfile(params: VYouEditProfileParams) -> VYouProfile
 
 Is not required to provide all the fields, just the wanted to be modified.
 
+## Payments
+
+To make payments through Stripe, the SDK provides two methods to create payments through the VYou platform.
+
+```swift
+//Ex: VYou.shared.createPayment(params)
+
+//VYouPaymentParams(amount: Long (in cents))
+func createPayment(params: VYouPaymentParams) -> String
+func createAnonymousPayment(params: VYouPaymentParams) -> String
+```
+
+Both methods require the `amount` desired in `cents` and will return the `secret` key requested by the Stripe payment SDK to display the payment sheet. In case that you don't have a integration with Stripe, the `VYouStripe` library explained further covers all the Stripe integration through the VYou platform.
+
+## Subscriptions
+
+To make subscriptions through Stripe, the SDK provide a few methods to manage all the subscription process.
+
+First, we have the method to return all the products related with the tenant, along their price interval, further the `priceId` field will be required to create any subscription.
+
+```swift
+//Ex: VYou.shared.subscriptionProducts()
+
+//VYouProduct(name, description, prices)
+//VYouPrice(priceId, amount, currency, interval, intervalCount)
+func subscriptionProducts()) -> List<VYouProduct>
+```
+
+Then, to create an subscription, similar like payments, we have a method that will return the `secret` key, but in this case we need the `priceId` related with the desire interval and product. Also, this functionality is covered in the `VYouStripe` library.
+
+```swift
+//Ex: VYou.shared.createSubscription(params)
+
+//VYouSubscriptionParams(priceId)
+func createSubscription(params: VYouSubscriptionParams) -> String
+```
+
+Also, there is a method to show the subscriptions that an user is subscribed.
+
+```swift
+//Ex: VYou.shared.mySubscriptions()
+
+//VYouSubscription(subscriptionId, productName, amount, currency, nextBillingDate, created)
+func mySubscriptions() -> List<VYouSubscription>
+```
+
+Finally, an user can cancel a subscription through the next method
+
+```swift
+//Ex: VYou.shared.cancelSubscription(params)
+
+//VYouSubscriptionCancelParams(subscriptionId)
+func cancelSubscription(params: VYouSubscriptionCancelParams)
+```
+
 ## Other methods
 
 To **log out** of the platform and clear the saved credentials, there is a sign out method
@@ -359,3 +415,45 @@ builder.addOnSignOut {
     VYouFacebook.shared.signOut()
 }
 ```
+
+# Integration with payment methods
+
+To improve your client experience, the SDK also provides a solution using Stripe to make payments and create subscriptions methods.
+
+## Initialize the client
+
+The library have a Builder class to create the shared instance to be used. This can be initialized in the AppDelegate or main entry point of the Swift UI app like in the [client](#installation) section.
+
+```swift
+// publishableKey - Key from Stripe's dashboard
+// merchantDisplayName - The name of the merchant that you want to display in the payment sheet.
+VYouStripe.Builder(
+    publishableKey: String,
+    merchantDisplayName: String
+).build()
+```
+
+Then, we can start using the library inside our application through their `shared` instance. Remember, that if you don't build the library, the `shared` instance will throw an exception.
+
+### Payments
+
+Through the SDK, we can create any payment to our users, the SDK provides two ways to do it, for users logged into the platform, or doing anonymously, when you don't need the user information.
+
+```swift
+VYouStripe.shared.createPayment(presenting: UIViewController, params: VYouPaymentsParams)
+VYouStripe.shared.createAnonymousPayment(presenting: UIViewController, params: VYouPaymentsParams)
+```
+
+`VYouPaymentParams` is a data class that requires the desire amount to be displayed to the user in cents, so if you want to display 1 euro, you must create an object `VYouPaymentParams(amount: 100)`.
+
+In the case of user cancels the payment or the operation fails, the SDK will return a `VYouError`.
+
+### Subscriptions
+
+In the case of subscriptions, the process is similar, the only changes is the params object, that now it is a `VYouSubscriptionParams(priceId: String)`. The `priceId` is the payment interval option related to the subscription (product in Stripe). The SDK through the `Client` library provides a way to display all the subscriptions related with the tenant. You can check this method and others related in the [section](#subscriptions)
+
+```swift
+VYouStripe.shared.createSubscription(presenting: UIViewController, params: VYouSubscriptionParams)
+```
+
+In the case of user cancels the subscription or the operation fails, the SDK will return a `VYouError`.
