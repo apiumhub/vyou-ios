@@ -1,22 +1,30 @@
 import Foundation
 import Stripe
 import UIKit
+import VYouCore
 
 class StripeCollaborator {
-    func presentPayment(from: UIViewController, secret: String, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (Bool) -> Void) {
+    let merchantDisplayName: String
+    
+    init(merchantDisplayName: String) {
+        self.merchantDisplayName = merchantDisplayName
+    }
+    
+    func presentPayment(from: UIViewController, secret: String, onFailure: @escaping (Error) -> Void, onSuccess: @escaping () -> Void) {
         var configuration = PaymentSheet.Configuration()
-        configuration.merchantDisplayName = "VYou Test"
+        configuration.merchantDisplayName = merchantDisplayName
         let paymentSheet = PaymentSheet(paymentIntentClientSecret: secret, configuration: configuration)
         
         DispatchQueue.main.async {
             paymentSheet.present(from: from) { paymentResult in
                 switch paymentResult {
                 case .completed:
-                    onSuccess(true)
+                    onSuccess()
                 case .canceled:
-                    onSuccess(false)
+                    onFailure(VYouStripeError.paymentCanceled)
                 case .failed(let error):
-                    onFailure(error)
+                    debugPrint("Stripe payment error: \(error.localizedDescription)")
+                    onFailure(VYouStripeError.paymentFailure)
                 }
             }
         }

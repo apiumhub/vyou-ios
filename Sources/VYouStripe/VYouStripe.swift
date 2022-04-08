@@ -8,12 +8,12 @@ public final class VYouStripe {
     private let collaborator: StripeCollaborator
     public static var shared: VYouStripe!
     
-    private init(publishableKey: String) {
+    private init(publishableKey: String, merchantDisplayName: String) {
         StripeAPI.defaultPublishableKey = publishableKey
-        collaborator = StripeCollaborator()
+        collaborator = StripeCollaborator(merchantDisplayName: merchantDisplayName)
     }
     
-    public func createPayment(presenting: UIViewController, params: VYouPaymentParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (Bool) -> Void) {
+    public func createPayment(presenting: UIViewController, params: VYouPaymentParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping () -> Void) {
         VYou.shared.createPayment(params: params) { [weak self] (secret, error) in
             if let error = error {
                 onFailure(error)
@@ -27,7 +27,7 @@ public final class VYouStripe {
         }
     }
     
-    public func createAnonymousPayment(presenting: UIViewController, params: VYouPaymentParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (Bool) -> Void) {
+    public func createAnonymousPayment(presenting: UIViewController, params: VYouPaymentParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping () -> Void) {
         VYou.shared.createAnonymousPayment(params: params) { [weak self] (secret, error) in
             if let error = error {
                 onFailure(error)
@@ -41,7 +41,7 @@ public final class VYouStripe {
         }
     }
     
-    public func createSubscription(presenting: UIViewController, params: VYouSubscriptionParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (Bool) -> Void) {
+    public func createSubscription(presenting: UIViewController, params: VYouSubscriptionParams, onFailure: @escaping (Error) -> Void, onSuccess: @escaping () -> Void) {
         VYou.shared.createSubscription(params: params) { [weak self] (secret, error) in
             if let error = error {
                 onFailure(error)
@@ -57,19 +57,21 @@ public final class VYouStripe {
     
     public class Builder {
         let publishableKey: String
+        let merchantDisplayName: String
         
-        public init(publishableKey: String) {
+        public init(publishableKey: String, merchantDisplayName: String) {
+            self.merchantDisplayName = merchantDisplayName
             self.publishableKey = publishableKey
         }
         
         public func build() {
-            VYouStripe.shared = VYouStripe(publishableKey: publishableKey)
+            VYouStripe.shared = VYouStripe(publishableKey: publishableKey, merchantDisplayName: merchantDisplayName)
         }
     }
 }
 
 enum VYouStripeError: Error {
-    case initialize
-    case socialImplementation
     case invalidSecret
+    case paymentCanceled
+    case paymentFailure
 }

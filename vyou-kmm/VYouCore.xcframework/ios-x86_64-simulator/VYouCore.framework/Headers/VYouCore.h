@@ -431,6 +431,8 @@ __attribute__((swift_name("VYouErrorCode")))
 @property (class, readonly) VYCVYouErrorCode *instance __attribute__((swift_name("instance")));
 @property (class, readonly) VYCVYouErrorCode *loginSocialCanceled __attribute__((swift_name("loginSocialCanceled")));
 @property (class, readonly) VYCVYouErrorCode *loginSocialError __attribute__((swift_name("loginSocialError")));
+@property (class, readonly) VYCVYouErrorCode *paymentCanceled __attribute__((swift_name("paymentCanceled")));
+@property (class, readonly) VYCVYouErrorCode *paymentError __attribute__((swift_name("paymentError")));
 @property (class, readonly) VYCVYouErrorCode *validationParams __attribute__((swift_name("validationParams")));
 @property (class, readonly) VYCVYouErrorCode *networkRequestError __attribute__((swift_name("networkRequestError")));
 @property (class, readonly) VYCVYouErrorCode *networkServerError __attribute__((swift_name("networkServerError")));
