@@ -1,8 +1,8 @@
 # iOS SDK for [VYou](https://www.vyou-app.com/)
 
-This is the iOS SDK for [VYou](https://www.vyou-app.com/), a service to provide user identity to your applications. This library includes a client SDK along some artifacts and a sample to agilize your workflow.
+This is the iOS SDK for [VYou](https://www.vyou-app.com/), a service to provide user identity to your applications. This library includes a client SDK along some artifacts and a sample to streamline your workflow.
 
-The SDK is written in Kotlin using Kotlin Multiplatform for the client side and in Swift for the integration with third party social libraries.
+The SDK is written in Kotlin using Kotlin Multiplatform for the client side and in Swift for the integration with third-party social libraries.
 
 ## Overview
 
@@ -14,13 +14,13 @@ The SDK consist of various artifacts:
 - [iOS-Facebook](#integration-with-social-libraries): Library to sign in/up in VYou through Facebook libraries.
 - [iOS-Stripe](#integration-with-payment-methods): Library to make payments and subscriptions through Stripe.
 
-Additionally, we created an [application sample](https://github.com/apiumhub/vyou-ios/blob/main/vyou-ios-swiftui-sample) using SwiftUI to check how can be implemented each artifact.
+In addition, we have created a [sample application](https://github.com/apiumhub/vyou-ios/blob/main/vyou-ios-swiftui-sample) using SwiftUI to test how each artefact can be implemented.
 
 # Client
 
 ## Installation
 
-The library is available through SPM (Swift Package Manager), you only need to go to your Xcode project, click on File > Add Packages and paste the git url on the search field. Also you can use it as library inside your Package.swift file.
+The library is available through SPM (Swift Package Manager), just go to your Xcode project, click File > Add Packages and paste the git url in the search field. You can also use it as a library inside your Package.swift file.
 
 ```swift
 .package(url: "https://github.com/apiumhub/vyou-ios",.upToNextMajor(from: "{latest-release-version}")),
@@ -34,31 +34,31 @@ The library will provide you four targets:
 
 ## Getting Started
 
-The first step is initializing the `VYou` class, which is the main entry point for all the operations in the library. `VYou` is a class that contains all the operations that you can realize using the SDK; you'll use this method once, generate a single instance and use the rest of methods across your application.
+The first step is to initialise the `VYou` class, which is the main entry point for all operations in the library. `VYou` is a class that contains all the operations you can perform using the SDK; you will use this method once, generating a single instance and using the rest of the methods in your application.
 
-To create the client, we need to invoke the builder class related with `VYou` class and pass them the required parameters:
+To create the client, we need to invoke the constructor class related to the `VYou` class and pass it the required parameters:
 
 ```swift
 let builder = VYou.Builder(clientId: "{VYOU_CLIENT_ID}", serverUrl: "{VYOU_SERVER_URL}")
 ```
 
-These variables are provided by the VYou staff, the approach used in the samples is including this data through `Process Info` as environment variables:
+These variables are provided by VYou staff, the approach used in the samples is to include this data through `Process Info` as environment variables:
 
 ```swift
 let clientId = ProcessInfo.processInfo.environment["CLIENT_ID"]
 let serverUrl = ProcessInfo.processInfo.environment["SERVER_URL"]
 ```
 
-Additionally, the builder can be configurated with some optional functions. To track the network operations you can change the log level, by default is `none`.
+In addition, the constructor can be configured with some optional functions. To track network operations the logging level can be changed, default is `none`.
 
 ```swift
 //level - VYouLogLevel class
 builder.enableNetworkLogs(level: .all)
 ```
 
-VYouLogLevel is a `enum class` and you can select between `all`, `info`, `headers`, `body` or `none` they will affect to our [Ktor](https://ktor.io/docs/client-logging.html) implementation used by the client.
+VYouLogLevel is an `enum class` class and you can select between `all`, `info`, `headers`, `body` or `none` which will affect our implementation [Ktor](https://ktor.io/docs/client-logging.html) used by the client.
 
-Lastly, we have two callbacks, first we have `addOnRefreshTokenFailure` when the refresh token is invalidated by the server and `addOnSignOut` after the signOut is completed successfully. Both callbacks aims to help you manage the application status when these events occur.
+Finally, we have two callbacks, first we have `addOnRefreshTokenFailure` when the refresh token is invalidated by the server and `addOnSignOut` after the signOut completes successfully. Both callbacks are intended to help manage the state of the application when these events occur.
 
 ```swift
 builder.addOnRefreshTokenFailure { error in
@@ -69,7 +69,7 @@ builder.addOnSignOut {
 }
 ```
 
-Even if you use the optional functions or not, to finally initialize the client you need to invoke the `build` function of the builder.
+Whether you use the optional functions or not, to finally initialise the client you need to invoke the `build` function of the builder.
 
 ```swift
 builder.build()
@@ -91,7 +91,7 @@ class AppDelegate : UIApplicationDelegate {
 }
 ```
 
-Alternatively, if you are using Swift UI, you can build the client in the main entry point of the application.
+Alternatively, if you are using Swift UI, you can build the client into the main entry point of the application.
 
 ```swift
 import VYou
@@ -110,9 +110,9 @@ struct MainApp: App {
 
 ### Using the client
 
-After build the client, we can use it through the application calling `VYou.shared`. If the client is not initialized before call instance method, will throw an error related. The client provides functionality to authenticate an user and manage the user's information.
+After building the client, we can use it throughout the application by calling `VYou.shared`. If the client is not initialised before calling the instance method, it will throw a related error. The client provides functionality to authenticate a user and manage user information.
 
-All the methods related with network operations are `native` functions using `kotlin coroutines`. The SDK provides two types of functions to support compatibility on iOS.
+All methods related to network operations are `native` functions using `Kotlin coroutines`. The SDK provides two types of functions to support iOS compatibility.
 
 First, each function can be resolved through a completion handler method. For example:
 
@@ -120,7 +120,7 @@ First, each function can be resolved through a completion handler method. For ex
 func signIn(params: VYouSignInParams, completionHandler: (VYouCredentials) -> Void)
 ```
 
-This approach can help in some projects but in majority of projects should be using an asynchronous solution like Async/Await, Combine or RxSwift. To support these cases, as we mentioned every function is `native` and can be encapsulated to support each case and this is done using [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines) that can be installed using SPM.
+This approach may help in some projects but in most projects an asynchronous solution such as Async/Await, Combine or RxSwift should be used. To support these cases, as we have mentioned each function is `native` and can be encapsulated to support each case and this is done using [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines) which can be installed using SPM.
 
 When you install it, you have multiple targets to support each asynchronous framework:
 - KMPNativeCoroutines: Core part of the framework and required
@@ -154,7 +154,7 @@ func signIn() -> Single<VYouCredentials> {
 }
 ```
 
-This is some examples but you can check all the options in the [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines) repository.
+These are some examples but you can check all the options in the [KMP-NativeCoroutines] repository (https://github.com/rickclephas/KMP-NativeCoroutines).
 
 ### Sign in
 
@@ -172,7 +172,7 @@ VYou.shared.signInGoogle(params: VYouSignInSocialParams) -> VYouCredentials
 VYou.shared.signInFacebook(params: VYouSignInSocialParams) -> VYouCredentials
 ```
 
-Each method returns a `VYouCredentials` class that contains the information to authorize any call covered by VYou auth server. Internally, this information is being saved in a encrypted keychain and can be recovered through these credentials methods along helper methods to check the user's session.
+Each method returns a `VYouCredentials` class that contains the information to authorise any call covered by the VYou auth server. Internally, this information is stored in an encrypted keyring and can be retrieved through these credentials methods along with helper methods to check the user's session.
 
 ```swift
 //Ex: VYou.shared.accessToken()
@@ -183,12 +183,12 @@ func credentials() -> VYouCredentials
 func isValidToken() -> Boolean
 ```
 
-
-If you have already a Google or Facebook implementation in your application, you can use these methods to sign in into VYou, further we will explain the social artifacts mentioned at the [overview](#overview) that covers the implementation of the social libraries.
+If you already have a Google or Facebook implementation in your application, you can use these methods to log in to VYou, plus we will explain the social artefacts mentioned in the [overview](#overview) that covers the implementation of the social libraries.
 
 ### Sign up
 
-To sign up a new user in the platform, is required to make the three steps below. First we sign up the new user providing an email along the acceptation of the required terms of use and privacy policy provided by the application, optionally can be added an information boolean any marketing purpose.
+To register a new user on the platform, the following three steps are necessary. Firstly the new user is registered by providing an email along with the acceptance of the required terms of use and the privacy policy provided by the application, optionally a boolean information can be added for marketing purposes.
+
 
 ```swift
 //VYouSignUpParams(email, termsOfUseAccepted, privacyPolicyAccepted, infoAccepted)
@@ -202,33 +202,33 @@ After sign up, the user will receive a confirmation code in the email provided i
 VYou.shared.signUpVerify(params: VYouSignUpVerifyParams)
 ```
 
-Lastly, if the code provided is valid, the user must register a password related with the email provided using this method:
+Finally, if the provided code is valid, the user must register a password related to the provided email using this method:
 
 ```swift
 //VYouSignUpPasswordParams(password)
 VYou.shared.signUpPassword(params: VYouSignUpPasswordParams)
 ```
 
-All these steps are needed to ensure all the security steps related with OAuth protocol. After register password successfully, the user can use the [sign in](#sign-in) method to log into the platform.
+All these steps are necessary to ensure all security steps related to the OAuth protocol. After successfully registering the password, the user can use the [sign in](#sign-in) method to log in to the platform.
 
 ## Profile
 
-Users have access to the information that they provide to the application using VYou. To retrieve the current information they have the next method.
+Users have access to the information they provide to the application using VYou. To retrieve the current information they have the following method.
 
 ```swift
 VYou.shared.getProfile() -> VYouProfile
 ```
 
-`VYouProfile` is a class that contains the email registered, the custom fields and the compliant status related with the tenant. If the status is false, the application should request the required fields to the user.
+`VYouProfile` is a class containing the registered email, custom fields and the compliance status related to the tenant. If the status is false, the application should request the required fields from the user.
 
-To update their information they have another method to modify the custom fields related with the tenant.
+To update your information you have another method to modify the custom fields related to the tenant.
 
 ```swift
 //VYouEditProfileParams(fields)
 VYou.shared.editProfile(params: VYouEditProfileParams) -> VYouProfile
 ```
 
-Is not required to provide all the fields, just the wanted to be modified.
+It is not necessary to provide all fields, only the ones you want to modify.
 
 ## Payments
 
@@ -242,13 +242,14 @@ func createPayment(params: VYouPaymentParams) -> String
 func createAnonymousPayment(params: VYouPaymentParams) -> String
 ```
 
-Both methods require the `amount` desired in `cents` and will return the `secret` key requested by the Stripe payment SDK to display the payment sheet. In case that you don't have a integration with Stripe, the `VYouStripe` library explained further covers all the Stripe integration through the VYou platform.
+Both methods require the desired `amount` in `cents` and will return the `secret` key requested by Stripe's payment SDK to display the payment sheet. In case you don't have a Stripe integration, the `VYouStripe` library explained below covers all Stripe integration through the VYou platform.
 
 ## Subscriptions
 
-To make subscriptions through Stripe, the SDK provide a few methods to manage all the subscription process.
+To make subscriptions through Stripe, the SDK provides a few methods to manage the whole subscription process.
 
-First, we have the method to return all the products related with the tenant, along their price interval, further the `priceId` field will be required to create any subscription.
+Firstly, we have the method to return all the products related to the tenant, along with their price range, plus the `priceId` field will be required to create any subscription.
+
 
 ```swift
 //Ex: VYou.shared.subscriptionProducts()
@@ -258,7 +259,8 @@ First, we have the method to return all the products related with the tenant, al
 func subscriptionProducts()) -> List<VYouProduct>
 ```
 
-Then, to create an subscription, similar like payments, we have a method that will return the `secret` key, but in this case we need the `priceId` related with the desire interval and product. Also, this functionality is covered in the `VYouStripe` library.
+Then, to create a subscription, similar to payments, we have a method that will return the `secret` key, but in this case we need the `priceId` related to the desire interval and the product. Also, this functionality is covered in the `VYouStripe` library.
+
 
 ```swift
 //Ex: VYou.shared.createSubscription(params)
@@ -267,7 +269,7 @@ Then, to create an subscription, similar like payments, we have a method that wi
 func createSubscription(params: VYouSubscriptionParams) -> String
 ```
 
-Also, there is a method to show the subscriptions that an user is subscribed.
+In addition, there is a method to display the subscriptions to which a user is subscribed.
 
 ```swift
 //Ex: VYou.shared.mySubscriptions()
@@ -276,7 +278,7 @@ Also, there is a method to show the subscriptions that an user is subscribed.
 func mySubscriptions() -> List<VYouSubscription>
 ```
 
-Finally, an user can cancel a subscription through the next method
+Finally, a user can cancel a subscription through the following method
 
 ```swift
 //Ex: VYou.shared.cancelSubscription(params)
@@ -299,21 +301,21 @@ Users also can **reset password** using the next method, after a successful call
 VYou.shared.resetPassword(params: VYouResetPasswordParams)
 ```
 
-If any call returns a `401 - Forbidden` http code means that the access token used is expired and should be refresh, to do that must use the **refresh token** method
+If any call returns a `401 - Forbidden` http code it means that the access token used has expired and must be refreshed, to do this you must use the **refresh token** method.
 
 ```swift
 VYou.shared.refreshToken() -> VYouCredentials
 ```
 
-This should be implemented in a network interceptor to provide the smooth experience to the user, if the refresh token fails, the user must login again to retrieve a new access token.
+This must be implemented in a network interceptor to provide a smooth user experience, if the refresh token fails, the user must log in again to retrieve a new access token.
 
 # Integration with social libraries
 
-To facilitate the integration with Apple, Google and Facebook, we created various artifacts to manage the login through for each platform.
+To facilitate integration with Apple, Google and Facebook, we have created several artefacts to manage login across each platform.
 
 ## Getting started (Social)
 
-The usage of each library are very similar but each one needs some previous configuration.
+The use of each library is very similar but each one needs a previous configuration.
 
 ### Apple
 To use Apple Sign In, you need to activate the Sign In through Application's target > Signing&Capabilities > Add Capability > Sign in with Apple
@@ -356,7 +358,7 @@ In case of Facebook, you need to include Facebook Client Id of your project plus
 
 ### Initialize the client (Social)
 
-Each library have a Builder class to create the shared instance to be used. This can be initialized in the AppDelegate or main entry point of the Swift UI app like in the [client](#installation) section
+Each library has a Builder class to create the shared instance to be used. This can be initialised in the AppDelegate or main entry point of the Swift UI application as in [client](#installation) section
 
 ```swift
 VYouApple.Builder().build()
@@ -364,7 +366,7 @@ VYouFacebook.Builder().build()
 VYouGoogle.Builder(clientId: "{GOOGLE_CLIENT_ID}").build()
 ```
 
-Also, for Google and Facebook we need to add some methods related with application events.
+In addition, for Google and Facebook we need to add some methods related to application events.
 
 ```swift
 @UIApplicationMain
@@ -384,7 +386,7 @@ Then, we can start using both libraries inside our application through their `sh
 
 ### Sign in (Social)
 
-Each libraries have similar functions to sign into VYou platform.
+Each of the libraries has similar functions for signing in to the VYou platform.
 
 After apply these methods, we can use the `signIn()` method of each library.
 
@@ -394,11 +396,11 @@ After apply these methods, we can use the `signIn()` method of each library.
 //Ex: VYouFacebook.shared.signIn
 func signIn(presenting: UIViewController, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (VYouCredentials) -> Void)
 ```
-Each method returns a `VYouCredentials` that you can use it at your purpose.
+Each method returns a `VYouCredentials` that you can use as you wish.
 
 ### Sign out (Social)
 
-To sign out from the social libraries, we have the same method for each library, except Apple that doesn't need it.
+To sign out of the social libraries, we have the same method for each library, except Apple which doesn't need it.
 
 ```swift
 //Ex: VYouGoogle.shared.signOut()
@@ -406,7 +408,7 @@ To sign out from the social libraries, we have the same method for each library,
 func signOut()
 ```
 
-If you use both platforms in the application, we encourage you to use the `signOut()` method from the [client](#other-methods) section when you user want to log out and then use these `signOut()` social methods inside the `addOnSignOut()` of the builder client class.
+If you use both platforms in your application, we encourage you to use the `signOut()` method in the [client](#other-methods) section when the user wants to log out and then use these social `signOut()` methods within `addOnSignOut()` of the client builder class.
 
 ```swift
 let builder = VYou.Builder()
@@ -418,7 +420,7 @@ builder.addOnSignOut {
 
 # Integration with payment methods
 
-To improve your client experience, the SDK also provides a solution using Stripe to make payments and create subscriptions methods.
+To enhance the customer experience, the SDK also provides a solution that uses Stripe to make payments and create subscription methods.
 
 ## Initialize the client (Stripe)
 
