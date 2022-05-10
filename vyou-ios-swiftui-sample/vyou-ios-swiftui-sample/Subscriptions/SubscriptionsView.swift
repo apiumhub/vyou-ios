@@ -15,7 +15,7 @@ struct SubscriptionsView: View {
                     Text("Product: \(subscription.name)")
                     Text("Price: \(subscription.amount) \(subscription.currency)")
                     Button("Cancel subscription") {
-                        viewModel.cancel(subscriptionId: subscription.subId)
+                        Task { await viewModel.cancel(subscriptionId: subscription.subId) }
                     }
                 }
             }
@@ -32,7 +32,7 @@ struct SubscriptionsView: View {
                 Alert(title: Text("Subscriptions error"), message: Text(error.localizedDescription))
             }
         }.onAppear {
-            viewModel.loadSubscriptions()
+            Task { await viewModel.loadSubscriptions() }
         }
     }
 }

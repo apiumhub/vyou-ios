@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct LoginView: View {
-    @StateObject private var loginVM = LoginViewModel()
+    @StateObject private var viewModel = LoginViewModel()
     @EnvironmentObject private var router: Router
     
     var body: some View {
         VStack(alignment: .leading) {
             Text("Login").font(.largeTitle)
-            TextField("Email", text: $loginVM.credentials.email)
+            TextField("Email", text: $viewModel.credentials.email)
                 .keyboardType(.emailAddress)
-            SecureField("Password", text: $loginVM.credentials.password)
-            if(loginVM.showProgressView) {
+            SecureField("Password", text: $viewModel.credentials.password)
+            if(viewModel.showProgressView) {
                 ProgressView()
             }
             Button("Did you forget your password?") {
@@ -25,33 +25,27 @@ struct LoginView: View {
             }
             .padding(.bottom, 20)
             Button("Log in") {
-                loginVM.login {
-                    router.open(.profile)
-                }
+                Task { await viewModel.login() }
             }
-            .disabled(loginVM.loginDisabled)
+            .disabled(viewModel.loginDisabled)
             .padding(.bottom, 20)
             Divider()
             .padding(.bottom, 20)
             VStack {
                 Button("Log in with Google") {
-                    loginVM.loginWithGoogle() {
-                        router.open(.profile)
-                    }
+                    viewModel.loginWithGoogle()
                 }
                 .padding(.bottom, 20)
                 Divider()
                 .padding(.bottom, 20)
                 Button("Log in with Facebook") {
-                    loginVM.loginWithFacebook() {
-                        router.open(.profile)
-                    }
+                    viewModel.loginWithFacebook()
                 }
                 .padding(.bottom, 20)
                 Divider()
                 .padding(.bottom, 20)
                 Button("Pay anonymously") {
-                    loginVM.payAnonymously()
+                    viewModel.payAnonymously()
                 }
                 .padding(.bottom, 20)
             }
@@ -60,14 +54,17 @@ struct LoginView: View {
         .textInputAutocapitalization(.none)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding()
-        .disabled(loginVM.showProgressView)
-        .alert(item: $loginVM.error) { error in
+        .disabled(viewModel.showProgressView)
+        .alert(item: $viewModel.error) { error in
             Alert(title: Text("Invalid Login"), message: Text(error.localizedDescription))
         }
         Button("Create an account") {
             router.cleanOpen(.register)
         }
         .padding(.bottom, 20)
+        .onAppear {
+            viewModel.setup(router: router)
+        }
     }
 }
 

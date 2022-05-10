@@ -9,24 +9,20 @@ import Foundation
 import VYou
 import VYouCore
 import SwiftUI
-import KMPNativeCoroutinesRxSwift
-import RxSwift
 import VYouStripe
+import KMPNativeCoroutinesAsync
 
 class ProfileViewModel: ObservableObject {
     
-    private let disposeBag = DisposeBag()
+    private var router: Router?
     
-    func logOut(completion: @escaping () -> Void) {
-        
-        createSingle(for: VYou.shared.signOut())
-            .subscribe(onSuccess: { _ in
-                completion()
-            }, onFailure: { error in
-                completion()
-            })
-            .disposed(by: disposeBag)
-
+    func setup(router: Router) {
+        self.router = router
+    }
+    
+    func logOut() async {
+        try? await asyncFunction(for: VYou.shared.signOut())
+        router?.cleanOpen(.login)
     }
     
     func pay() {

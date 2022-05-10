@@ -9,50 +9,51 @@ import Foundation
 import VYou
 import VYouCore
 import UIKit
-import RxSwift
-import KMPNativeCoroutinesRxSwift
 import VYouGoogle
 import VYouFacebook
 import VYouStripe
+import KMPNativeCoroutinesAsync
 
 class LoginViewModel: ObservableObject {
     @Published var credentials = LoginCredentials()
     @Published var showProgressView = false
     @Published var error: NetworkError?
     
-    private let disposeBag = DisposeBag()
+    private var router: Router?
+    
+    func setup(router: Router) {
+        self.router = router
+    }
     
     var loginDisabled: Bool {
         credentials.email.isEmpty || credentials.password.isEmpty
     }
     
-    func login(completion: @escaping () -> Void) {
+    func login() async {
         showProgressView = true
-        let params = VYouSignInParams(username: credentials.email, password: credentials.password)
-        createSingle(for: VYou.shared.signIn(params: params))
-            .subscribe { [weak self] credentials in
-                self?.showProgressView = false
-                completion()
-            } onFailure: { [weak self] error in
-                self?.showProgressView = false
-                self?.error = NetworkError(errorDescription: error.localizedDescription)
-            }
-            .disposed(by: disposeBag)
+        do {
+            let params = VYouSignInParams(username: credentials.email, password: credentials.password)
+            try await asyncFunction(for: VYou.shared.signIn(params: params))
+            router?.open(.profile)
+        } catch {
+            self.error = NetworkError(errorDescription: error.localizedDescription)
+        }
+        showProgressView = false
     }
     
-    func loginWithGoogle(completion: @escaping () -> Void) {
+    func loginWithGoogle() {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
-        VYouGoogle.shared.signIn(presenting: viewController, onFailure: {_ in }) { credentials in
-            completion()
+        VYouGoogle.shared.signIn(presenting: viewController, onFailure: {_ in }) { [weak self] credentials in
+            self?.router?.open(.profile)
         }
     }
     
-    func loginWithFacebook(completion: @escaping () -> Void) {
+    func loginWithFacebook() {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
-        VYouFacebook.shared.signIn(presenting: viewController, onFailure: {_ in }) { credentials in
-            completion()
+        VYouFacebook.shared.signIn(presenting: viewController, onFailure: {_ in }) { [weak self] credentials in
+            self?.router?.open(.profile)
         }
     }
     

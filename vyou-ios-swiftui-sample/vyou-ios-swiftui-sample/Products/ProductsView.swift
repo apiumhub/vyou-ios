@@ -36,7 +36,7 @@ struct ProductsView: View {
                 Alert(title: Text("Products error"), message: Text(error.localizedDescription))
             }
         }.onAppear {
-            viewModel.loadProducts()
+            Task { await viewModel.loadProducts() }
         }
     }
 }

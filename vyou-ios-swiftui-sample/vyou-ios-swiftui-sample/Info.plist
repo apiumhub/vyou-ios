@@ -2,16 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FacebookDisplayName</key>
-	<string>vyou-ios-swiftui-sample</string>
-	<key>FacebookAppID</key>
-	<string>${FACEBOOK_ID}</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb681213149893706</string>
+				<string>fb420812989402395</string>
 			</array>
 		</dict>
 		<dict>
@@ -23,5 +19,18 @@
 			</array>
 		</dict>
 	</array>
+	<key>FacebookAppID</key>
+	<string>420812989402395</string>
+	<key>FacebookDisplayName</key>
+	<string>vyou-ios-swiftui-sample</string>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>launchScreenBackground</string>
+		<key>UIImageName</key>
+		<string>logo_vyou</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

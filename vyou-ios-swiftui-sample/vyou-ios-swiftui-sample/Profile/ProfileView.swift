@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ProfileView: View {
-    @StateObject private var profileVM = ProfileViewModel()
+    @StateObject private var viewModel = ProfileViewModel()
     @EnvironmentObject private var router: Router
     
     var body: some View {
@@ -19,7 +19,7 @@ struct ProfileView: View {
                 Divider()
                 .padding(.bottom, 20)
                 Button("Pay") {
-                    profileVM.pay()
+                    viewModel.pay()
                 }
                 .padding(.bottom, 20)
                 Divider()
@@ -40,11 +40,12 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Log out") {
-                        profileVM.logOut {
-                            router.cleanOpen(.login)
-                        }
+                        Task { await viewModel.logOut() }
                     }
                 }
+            }
+            .onAppear {
+                viewModel.setup(router: router)
             }
         }
         

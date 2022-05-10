@@ -26,9 +26,7 @@ struct RegisterView: View {
                 ProgressView()
             }
             Button("Sign up") {
-                viewModel.sendEmail {
-                    router.open(.profile)
-                }
+                Task { await viewModel.sendEmail() }
             }
             .disabled(viewModel.signUpDisabled)
             .padding(.bottom, 20)
@@ -45,5 +43,8 @@ struct RegisterView: View {
             router.cleanOpen(.login)
         }
         .padding(.bottom, 20)
+        .onAppear {
+            viewModel.setup(router: router)
+        }
     }
 }

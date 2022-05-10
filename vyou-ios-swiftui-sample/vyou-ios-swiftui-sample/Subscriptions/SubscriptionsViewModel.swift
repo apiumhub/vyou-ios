@@ -1,41 +1,42 @@
 import Foundation
 import VYou
 import VYouCore
-import SwiftUI
-import KMPNativeCoroutinesRxSwift
-import RxSwift
-import VYouStripe
+import KMPNativeCoroutinesAsync
 
 class SubscriptionsViewModel: ObservableObject {
     @Published var subscriptions: [Subscription] = []
-    @Published var showProgressView = true
+    @Published var showProgressView = false
     @Published var error: NetworkError?
     
-    private let disposeBag = DisposeBag()
-    
-    func loadSubscriptions() {
-        createSingle(for: VYou.shared.mySubscriptions())
-            .subscribe { [weak self] subscriptions in
-                self?.showProgressView = false
-                self?.subscriptions = subscriptions.map({ subscription in
-                    Subscription(
-                        subId: subscription.id,
-                        name: subscription.productName,
-                        amount: Double(subscription.amount),
-                        currency: subscription.currency
+    @MainActor
+    func loadSubscriptions() async {
+        showProgressView = true
+        do {
+            let vyouSubscriptions = try await asyncFunction(for: VYou.shared.mySubscriptions())
+            subscriptions = vyouSubscriptions.map({ subscription in
+                Subscription(
+                    subId: subscription.id,
+                    name: subscription.productName,
+                    amount: Double(subscription.amount),
+                    currency: subscription.currency
                 )
-                })
-            } onFailure: { [weak self] error in
-                self?.showProgressView = false
-                self?.error = NetworkError(errorDescription: error.localizedDescription)
-            }
-            .disposed(by: disposeBag)
+            })
+        } catch {
+            self.error = NetworkError(errorDescription: error.localizedDescription)
+        }
+        showProgressView = false
     }
     
-    func cancel(subscriptionId: String) {
-        let params = VYouSubscriptionCancelParams(subscriptionId: subscriptionId)
-
-        VYou.shared.cancelSubscription(params: params, completionHandler: {_, _ in })
+    @MainActor
+    func cancel(subscriptionId: String) async {
+        showProgressView = true
+        do {
+            let params = VYouSubscriptionCancelParams(subscriptionId: subscriptionId)
+            try await asyncFunction(for: VYou.shared.cancelSubscription(params: params))
+        } catch {
+            self.error = NetworkError(errorDescription: error.localizedDescription)
+        }
+        showProgressView = false
     }
 }
 

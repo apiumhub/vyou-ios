@@ -8,33 +8,34 @@
 import Foundation
 import VYou
 import VYouCore
-import RxSwift
-import KMPNativeCoroutinesRxSwift
+import KMPNativeCoroutinesAsync
 
 class RegisterViewModel: ObservableObject {
     @Published var model = RegisterModel()
     @Published var showProgressView = false
     @Published var error: NetworkError?
     
-    private let disposeBag = DisposeBag()
+    private var router: Router? = nil
+    
+    func setup(router: Router) {
+        self.router = router
+    }
     
     var signUpDisabled: Bool {
         model.email.isEmpty || !model.termsConditions || !model.privacyPolicy
     }
     
-    func sendEmail(completion: @escaping () -> Void) {
+    @MainActor
+    func sendEmail() async {
         showProgressView = true
-        let params = VYouSignUpParams(username: model.email, termsConditions: model.termsConditions, privacyPolicy: model.privacyPolicy, info: model.infoAds)
-        
-        createSingle(for: VYou.shared.signUp(params: params))
-            .subscribe { _ in
-                completion()
-            } onFailure: { [weak self] error in
-                self?.error = NetworkError(errorDescription: error.localizedDescription)
-            }
-            .disposed(by: disposeBag)
-
-        
+        do {
+            let params = VYouSignUpParams(username: model.email, termsConditions: model.termsConditions, privacyPolicy: model.privacyPolicy, info: model.infoAds)
+            try await asyncFunction(for: VYou.shared.signUp(params: params))
+            router?.open(.profile)
+        } catch {
+            self.error = NetworkError(errorDescription: error.localizedDescription)
+        }
+        showProgressView = false
     }
 }
 
