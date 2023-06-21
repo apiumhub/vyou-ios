@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class VYCKoin_coreKoin, VYCVYouLogLevel, VYCVYouError, VYCVYouSubscriptionCancelParams, VYCVYouPaymentParams, VYCVYouSubscriptionParams, VYCVYouCredentials, VYCVYouEditProfileParams, VYCVYouProfile, VYCVYouSubscription, VYCVYouResetPasswordParams, VYCVYouSignInProviderUserPassword, VYCPKCE, VYCVYouSignInSocialParams, VYCVYouSignInProviderFacebook, VYCVYouSignInProviderGoogle, VYCVYouSignUpParams, VYCVYouSignUpVerifyParams, VYCVYouProduct, VYCVYouConfig, VYCVYouCredentialsCompanion, VYCKotlinThrowable, VYCKotlinArray<T>, VYCKotlinError, VYCVYouErrorCode, VYCKotlinEnumCompanion, VYCKotlinEnum<E>, VYCVYouFieldCompanion, VYCVYouFieldDateCompanion, VYCVYouFieldDate, VYCVYouFieldEmailCompanion, VYCVYouFieldEmail, VYCVYouFieldNumberCompanion, VYCVYouFieldNumber, VYCVYouFieldTextCompanion, VYCVYouFieldText, VYCKtor_client_loggingLogLevel, VYCVYouPriceInterval, VYCVYouPrice, VYCVYouSignInParams, VYCVYouSignInProvider, VYCVYouSignUpPasswordParams, VYCCredentialsDTOCompanion, VYCCredentialsDTO, VYCDateUtil, VYCKtor_client_coreHttpClient, VYCKtor_client_coreHttpResponse, VYCKotlinPair<__covariant A, __covariant B>, VYCValidation, VYCValidationParamRules, VYCValidationRule, VYCCredentialsStorageRepositoryCompanion, VYCResetPasswordDTOCompanion, VYCResetPasswordDTO, VYCProfileEditDTOCompanion, VYCProfileEditDTO, VYCBackendDTOCompanion, VYCBackendDTO, VYCNetworkClient, VYCKoin_coreModule, VYCKoin_coreScope, VYCKoin_coreParametersHolder, VYCKotlinLazyThreadSafetyMode, VYCKoin_coreLogger, VYCKoin_coreInstanceRegistry, VYCKoin_corePropertyRegistry, VYCKoin_coreScopeRegistry, VYCKotlinException, VYCKotlinRuntimeException, VYCKotlinIllegalStateException, VYCKtor_client_coreHttpClientEngineConfig, VYCKtor_client_coreHttpClientConfig<T>, VYCKtor_eventsEvents, VYCKtor_client_coreHttpReceivePipeline, VYCKtor_client_coreHttpRequestPipeline, VYCKtor_client_coreHttpResponsePipeline, VYCKtor_client_coreHttpSendPipeline, VYCKtor_client_coreHttpClientCall, VYCKtor_utilsGMTDate, VYCKtor_httpHttpStatusCode, VYCKtor_httpHttpProtocolVersion, VYCKoin_coreKoinDefinition<R>, VYCKoin_coreInstanceFactory<T>, VYCKoin_coreSingleInstanceFactory<T>, VYCKoin_coreScopeDSL, VYCKoin_coreLockable, VYCKoin_coreParametersHolderCompanion, VYCKoin_coreLevel, VYCKoin_coreScopeRegistryCompanion, VYCKotlinx_serialization_coreSerializersModule, VYCKotlinx_serialization_coreSerialKind, VYCKotlinNothing, VYCKtor_client_coreHttpRequestData, VYCKtor_client_coreHttpResponseData, VYCKotlinx_coroutines_coreCoroutineDispatcher, VYCKtor_client_coreProxyConfig, VYCKtor_utilsAttributeKey<T>, VYCKtor_eventsEventDefinition<T>, VYCKtor_utilsPipelinePhase, VYCKtor_utilsPipeline<TSubject, TContext>, VYCKtor_client_coreHttpReceivePipelinePhases, VYCKotlinUnit, VYCKtor_client_coreHttpRequestPipelinePhases, VYCKtor_client_coreHttpRequestBuilder, VYCKtor_client_coreHttpResponsePipelinePhases, VYCKtor_client_coreHttpResponseContainer, VYCKtor_client_coreHttpSendPipelinePhases, VYCKtor_client_coreHttpClientCallCompanion, VYCKtor_utilsTypeInfo, VYCKtor_ioMemory, VYCKtor_ioChunkBuffer, VYCKotlinByteArray, VYCKtor_ioBuffer, VYCKtor_ioByteReadPacket, VYCKtor_utilsGMTDateCompanion, VYCKtor_utilsWeekDay, VYCKtor_utilsMonth, VYCKtor_httpHttpStatusCodeCompanion, VYCKtor_httpHttpProtocolVersionCompanion, VYCKoin_coreBeanDefinition<T>, VYCKoin_coreInstanceFactoryCompanion, VYCKoin_coreInstanceContext, VYCKtor_httpUrl, VYCKtor_httpHttpMethod, VYCKtor_httpOutgoingContent, VYCKotlinAbstractCoroutineContextElement, VYCKotlinx_coroutines_coreCoroutineDispatcherKey, VYCKtor_httpHeadersBuilder, VYCKtor_client_coreHttpRequestBuilderCompanion, VYCKtor_httpURLBuilder, VYCKtor_ioMemoryCompanion, VYCKtor_ioBufferCompanion, VYCKtor_ioChunkBufferCompanion, VYCKotlinByteIterator, VYCKtor_ioInputCompanion, VYCKtor_ioInput, VYCKtor_ioByteReadPacketCompanion, VYCKtor_utilsWeekDayCompanion, VYCKtor_utilsMonthCompanion, VYCKoin_coreKind, VYCKoin_coreCallbacks<T>, VYCKtor_httpUrlCompanion, VYCKtor_httpURLProtocol, VYCKtor_httpHttpMethodCompanion, VYCKtor_httpContentType, VYCKotlinCancellationException, VYCKotlinAbstractCoroutineContextKey<B, E>, VYCKtor_utilsStringValuesBuilderImpl, VYCKtor_httpURLBuilderCompanion, VYCKotlinKTypeProjection, VYCKtor_httpURLProtocolCompanion, VYCKtor_httpHeaderValueParam, VYCKtor_httpHeaderValueWithParametersCompanion, VYCKtor_httpHeaderValueWithParameters, VYCKtor_httpContentTypeCompanion, VYCKotlinKVariance, VYCKotlinKTypeProjectionCompanion, VYCKotlinx_coroutines_coreAtomicDesc, VYCKotlinx_coroutines_coreLockFreeLinkedListNodePrepareOp, VYCKotlinx_coroutines_coreAtomicOp<__contravariant T>, VYCKotlinx_coroutines_coreOpDescriptor, VYCKotlinx_coroutines_coreLockFreeLinkedListNode, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeAbstractAtomicDesc, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeAddLastDesc<T>, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeRemoveFirstDesc<T>;
+@class VYCKoin_coreKoin, VYCVYouLogLevel, VYCVYouError, VYCVYouCredentials, VYCVYouEditProfileParams, VYCVYouProfile, VYCVYouResetPasswordParams, VYCVYouSignInProviderUserPassword, VYCPKCE, VYCVYouSignInProviderApple, VYCVYouSignInProviderFacebook, VYCVYouSignInProviderGoogle, VYCVYouSignUpParams, VYCVYouSignUpVerifyParams, VYCVYouConfig, VYCVYouCredentialsCompanion, VYCKotlinThrowable, VYCKotlinArray<T>, VYCKotlinError, VYCVYouErrorCode, VYCKotlinEnumCompanion, VYCKotlinEnum<E>, VYCVYouFieldCompanion, VYCVYouFieldDateCompanion, VYCVYouFieldDate, VYCVYouFieldEmailCompanion, VYCVYouFieldEmail, VYCVYouFieldNumberCompanion, VYCVYouFieldNumber, VYCVYouFieldTextCompanion, VYCVYouFieldText, VYCKtor_client_loggingLogLevel, VYCVYouPaymentParams, VYCVYouPriceInterval, VYCVYouPrice, VYCVYouProduct, VYCVYouSignInProvider, VYCVYouSignUpPasswordParams, VYCVYouSubscription, VYCVYouSubscriptionCancelParams, VYCVYouSubscriptionParams, VYCCredentialsDTOCompanion, VYCCredentialsDTO, VYCDateUtil, VYCKtor_client_coreHttpClient, VYCKtor_client_coreHttpResponse, VYCKotlinPair<__covariant A, __covariant B>, VYCValidation, VYCValidationParamRules, VYCValidationRule, VYCCredentialsStorageRepositoryCompanion, VYCResetPasswordDTOCompanion, VYCResetPasswordDTO, VYCProfileEditDTOCompanion, VYCProfileEditDTO, VYCBackendDTOCompanion, VYCBackendDTO, VYCNetworkClient, VYCKoin_coreModule, VYCKoin_coreScope, VYCKoin_coreParametersHolder, VYCKotlinLazyThreadSafetyMode, VYCKoin_coreLogger, VYCKoin_coreInstanceRegistry, VYCKoin_corePropertyRegistry, VYCKoin_coreScopeRegistry, VYCKotlinException, VYCKotlinRuntimeException, VYCKotlinIllegalStateException, VYCKtor_client_coreHttpClientEngineConfig, VYCKtor_client_coreHttpClientConfig<T>, VYCKtor_eventsEvents, VYCKtor_client_coreHttpReceivePipeline, VYCKtor_client_coreHttpRequestPipeline, VYCKtor_client_coreHttpResponsePipeline, VYCKtor_client_coreHttpSendPipeline, VYCKtor_client_coreHttpClientCall, VYCKtor_utilsGMTDate, VYCKtor_httpHttpStatusCode, VYCKtor_httpHttpProtocolVersion, VYCKoin_coreKoinDefinition<R>, VYCKoin_coreInstanceFactory<T>, VYCKoin_coreSingleInstanceFactory<T>, VYCKoin_coreScopeDSL, VYCKoin_coreLockable, VYCKoin_coreParametersHolderCompanion, VYCKoin_coreLevel, VYCKoin_coreScopeRegistryCompanion, VYCKotlinx_serialization_coreSerializersModule, VYCKotlinx_serialization_coreSerialKind, VYCKotlinNothing, VYCKtor_client_coreHttpRequestData, VYCKtor_client_coreHttpResponseData, VYCKotlinx_coroutines_coreCoroutineDispatcher, VYCKtor_client_coreProxyConfig, VYCKtor_utilsAttributeKey<T>, VYCKtor_eventsEventDefinition<T>, VYCKtor_utilsPipelinePhase, VYCKtor_utilsPipeline<TSubject, TContext>, VYCKtor_client_coreHttpReceivePipelinePhases, VYCKotlinUnit, VYCKtor_client_coreHttpRequestPipelinePhases, VYCKtor_client_coreHttpRequestBuilder, VYCKtor_client_coreHttpResponsePipelinePhases, VYCKtor_client_coreHttpResponseContainer, VYCKtor_client_coreHttpSendPipelinePhases, VYCKtor_client_coreHttpClientCallCompanion, VYCKtor_utilsTypeInfo, VYCKtor_ioMemory, VYCKtor_ioChunkBuffer, VYCKotlinByteArray, VYCKtor_ioBuffer, VYCKtor_ioByteReadPacket, VYCKtor_utilsGMTDateCompanion, VYCKtor_utilsWeekDay, VYCKtor_utilsMonth, VYCKtor_httpHttpStatusCodeCompanion, VYCKtor_httpHttpProtocolVersionCompanion, VYCKoin_coreBeanDefinition<T>, VYCKoin_coreInstanceFactoryCompanion, VYCKoin_coreInstanceContext, VYCKtor_httpUrl, VYCKtor_httpHttpMethod, VYCKtor_httpOutgoingContent, VYCKotlinAbstractCoroutineContextElement, VYCKotlinx_coroutines_coreCoroutineDispatcherKey, VYCKtor_httpHeadersBuilder, VYCKtor_client_coreHttpRequestBuilderCompanion, VYCKtor_httpURLBuilder, VYCKtor_ioMemoryCompanion, VYCKtor_ioBufferCompanion, VYCKtor_ioChunkBufferCompanion, VYCKotlinByteIterator, VYCKtor_ioInputCompanion, VYCKtor_ioInput, VYCKtor_ioByteReadPacketCompanion, VYCKtor_utilsWeekDayCompanion, VYCKtor_utilsMonthCompanion, VYCKoin_coreKind, VYCKoin_coreCallbacks<T>, VYCKtor_httpUrlCompanion, VYCKtor_httpURLProtocol, VYCKtor_httpHttpMethodCompanion, VYCKtor_httpContentType, VYCKotlinCancellationException, VYCKotlinAbstractCoroutineContextKey<B, E>, VYCKtor_utilsStringValuesBuilderImpl, VYCKtor_httpURLBuilderCompanion, VYCKotlinKTypeProjection, VYCKtor_httpURLProtocolCompanion, VYCKtor_httpHeaderValueParam, VYCKtor_httpHeaderValueWithParametersCompanion, VYCKtor_httpHeaderValueWithParameters, VYCKtor_httpContentTypeCompanion, VYCKotlinKVariance, VYCKotlinKTypeProjectionCompanion, VYCKotlinx_coroutines_coreAtomicDesc, VYCKotlinx_coroutines_coreLockFreeLinkedListNodePrepareOp, VYCKotlinx_coroutines_coreAtomicOp<__contravariant T>, VYCKotlinx_coroutines_coreOpDescriptor, VYCKotlinx_coroutines_coreLockFreeLinkedListNode, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeAbstractAtomicDesc, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeAddLastDesc<T>, VYCKotlinx_coroutines_coreLockFreeLinkedListNodeRemoveFirstDesc<T>;
 
 @protocol VYCKoin_coreKoinComponent, VYCKotlinx_serialization_coreKSerializer, VYCVYouField, VYCKotlinComparable, VYCKotlinSuspendFunction0, VYCCredentialsRepository, VYCMultiplatform_settingsSettings, VYCBackendRepository, VYCKoin_coreKoinScopeComponent, VYCKoin_coreQualifier, VYCKotlinKClass, VYCKotlinLazy, VYCKotlinx_serialization_coreEncoder, VYCKotlinx_serialization_coreSerialDescriptor, VYCKotlinx_serialization_coreSerializationStrategy, VYCKotlinx_serialization_coreDecoder, VYCKotlinx_serialization_coreDeserializationStrategy, VYCKotlinIterator, VYCKotlinCoroutineContext, VYCKotlinx_coroutines_coreCoroutineScope, VYCKtor_ioCloseable, VYCKtor_client_coreHttpClientEngine, VYCKtor_client_coreHttpClientEngineCapability, VYCKtor_utilsAttributes, VYCKotlinFunction, VYCKtor_httpHeaders, VYCKtor_httpHttpMessage, VYCKtor_ioByteReadChannel, VYCKoin_coreScopeCallback, VYCKotlinKDeclarationContainer, VYCKotlinKAnnotatedElement, VYCKotlinKClassifier, VYCKotlinx_serialization_coreCompositeEncoder, VYCKotlinAnnotation, VYCKotlinx_serialization_coreCompositeDecoder, VYCKotlinCoroutineContextElement, VYCKotlinCoroutineContextKey, VYCKtor_client_coreHttpClientPlugin, VYCKotlinx_coroutines_coreDisposableHandle, VYCKotlinSuspendFunction2, VYCKotlinMapEntry, VYCKtor_utilsStringValues, VYCKtor_client_coreHttpRequest, VYCKtor_ioReadSession, VYCKotlinSuspendFunction1, VYCKotlinAppendable, VYCKotlinx_serialization_coreSerializersModuleCollector, VYCKotlinx_coroutines_coreJob, VYCKotlinContinuation, VYCKotlinContinuationInterceptor, VYCKotlinx_coroutines_coreRunnable, VYCKtor_httpHttpMessageBuilder, VYCKotlinKType, VYCKtor_ioObjectPool, VYCKtor_httpParameters, VYCKotlinx_coroutines_coreChildHandle, VYCKotlinx_coroutines_coreChildJob, VYCKotlinSequence, VYCKotlinx_coroutines_coreSelectClause0, VYCKtor_utilsStringValuesBuilder, VYCKtor_httpParametersBuilder, VYCKotlinx_coroutines_coreParentJob, VYCKotlinx_coroutines_coreSelectInstance;
 
@@ -156,30 +156,6 @@ __attribute__((swift_name("VYouClient")))
 - (instancetype)initWithClientId:(NSString *)clientId serverUrl:(NSString *)serverUrl networkLogLevel:(VYCVYouLogLevel *)networkLogLevel onRefreshTokenFailure:(void (^)(VYCVYouError *))onRefreshTokenFailure onSignOut:(void (^)(void))onSignOut __attribute__((swift_name("init(clientId:serverUrl:networkLogLevel:onRefreshTokenFailure:onSignOut:)"))) __attribute__((objc_designated_initializer));
 
 /**
- * @note This method converts instances of VYouError, CancellationException to errors.
- * Other uncaught Kotlin exceptions are fatal.
-*/
-- (void)cancelSubscriptionParams:(VYCVYouSubscriptionCancelParams *)params completionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("cancelSubscription(params:completionHandler:)")));
-
-/**
- * @note This method converts instances of VYouError, CancellationException to errors.
- * Other uncaught Kotlin exceptions are fatal.
-*/
-- (void)createAnonymousPaymentParams:(VYCVYouPaymentParams *)params completionHandler:(void (^)(NSString * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("createAnonymousPayment(params:completionHandler:)")));
-
-/**
- * @note This method converts instances of VYouError, CancellationException to errors.
- * Other uncaught Kotlin exceptions are fatal.
-*/
-- (void)createPaymentParams:(VYCVYouPaymentParams *)params completionHandler:(void (^)(NSString * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("createPayment(params:completionHandler:)")));
-
-/**
- * @note This method converts instances of VYouError, CancellationException to errors.
- * Other uncaught Kotlin exceptions are fatal.
-*/
-- (void)createSubscriptionParams:(VYCVYouSubscriptionParams *)params completionHandler:(void (^)(NSString * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("createSubscription(params:completionHandler:)")));
-
-/**
  * @note This method converts instances of VYouError to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
@@ -206,12 +182,6 @@ __attribute__((swift_name("VYouClient")))
  * @note This method converts instances of VYouError, CancellationException to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)mySubscriptionsWithCompletionHandler:(void (^)(NSArray<VYCVYouSubscription *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("mySubscriptions(completionHandler:)")));
-
-/**
- * @note This method converts instances of VYouError, CancellationException to errors.
- * Other uncaught Kotlin exceptions are fatal.
-*/
 - (void)refreshTokenWithCompletionHandler:(void (^)(VYCVYouCredentials * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("refreshToken(completionHandler:)")));
 
 /**
@@ -230,7 +200,7 @@ __attribute__((swift_name("VYouClient")))
  * @note This method converts instances of VYouError, CancellationException to errors.
  * Other uncaught Kotlin exceptions are fatal.
 */
-- (void)signInAppleParams:(VYCVYouSignInSocialParams *)params completionHandler:(void (^)(VYCVYouCredentials * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("signInApple(params:completionHandler:)")));
+- (void)signInAppleParams:(VYCVYouSignInProviderApple *)params completionHandler:(void (^)(VYCVYouCredentials * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("signInApple(params:completionHandler:)")));
 
 /**
  * @note This method converts instances of VYouError, CancellationException to errors.
@@ -267,12 +237,6 @@ __attribute__((swift_name("VYouClient")))
  * Other uncaught Kotlin exceptions are fatal.
 */
 - (void)signUpVerifyParams:(VYCVYouSignUpVerifyParams *)params completionHandler:(void (^)(NSError * _Nullable))completionHandler __attribute__((swift_name("signUpVerify(params:completionHandler:)")));
-
-/**
- * @note This method converts instances of VYouError, CancellationException to errors.
- * Other uncaught Kotlin exceptions are fatal.
-*/
-- (void)subscriptionProductsWithCompletionHandler:(void (^)(NSArray<VYCVYouProduct *> * _Nullable, NSError * _Nullable))completionHandler __attribute__((swift_name("subscriptionProducts(completionHandler:)")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -652,20 +616,19 @@ __attribute__((swift_name("VYouResetPasswordParams")))
 @property (readonly) NSString *email __attribute__((swift_name("email")));
 @end
 
+__attribute__((swift_name("VYouSignInProvider")))
+@interface VYCVYouSignInProvider : VYCBase
+@end
+
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VYouSignInParams")))
-@interface VYCVYouSignInParams : VYCBase
-- (instancetype)initWithUsername:(NSString *)username password:(NSString *)password __attribute__((swift_name("init(username:password:)"))) __attribute__((objc_designated_initializer));
-- (VYCVYouSignInParams *)doCopyUsername:(NSString *)username password:(NSString *)password __attribute__((swift_name("doCopy(username:password:)")));
+__attribute__((swift_name("VYouSignInProvider.Apple")))
+@interface VYCVYouSignInProviderApple : VYCVYouSignInProvider
+- (instancetype)initWithAccessToken:(NSString *)accessToken __attribute__((swift_name("init(accessToken:)"))) __attribute__((objc_designated_initializer));
+- (VYCVYouSignInProviderApple *)doCopyAccessToken:(NSString *)accessToken __attribute__((swift_name("doCopy(accessToken:)")));
 - (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
 - (NSUInteger)hash __attribute__((swift_name("hash()")));
 - (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *password __attribute__((swift_name("password")));
-@property (readonly) NSString *username __attribute__((swift_name("username")));
-@end
-
-__attribute__((swift_name("VYouSignInProvider")))
-@interface VYCVYouSignInProvider : VYCBase
+@property (readonly) NSString *accessToken __attribute__((swift_name("accessToken")));
 @end
 
 __attribute__((objc_subclassing_restricted))
@@ -700,17 +663,6 @@ __attribute__((swift_name("VYouSignInProvider.UserPassword")))
 - (NSString *)description __attribute__((swift_name("description()")));
 @property (readonly) NSString *password __attribute__((swift_name("password")));
 @property (readonly) NSString *username __attribute__((swift_name("username")));
-@end
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("VYouSignInSocialParams")))
-@interface VYCVYouSignInSocialParams : VYCBase
-- (instancetype)initWithAccessToken:(NSString *)accessToken __attribute__((swift_name("init(accessToken:)"))) __attribute__((objc_designated_initializer));
-- (VYCVYouSignInSocialParams *)doCopyAccessToken:(NSString *)accessToken __attribute__((swift_name("doCopy(accessToken:)")));
-- (BOOL)isEqual:(id _Nullable)other __attribute__((swift_name("isEqual(_:)")));
-- (NSUInteger)hash __attribute__((swift_name("hash()")));
-- (NSString *)description __attribute__((swift_name("description()")));
-@property (readonly) NSString *accessToken __attribute__((swift_name("accessToken")));
 @end
 
 __attribute__((objc_subclassing_restricted))

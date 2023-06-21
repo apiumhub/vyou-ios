@@ -9,9 +9,6 @@ import Foundation
 import VYou
 import VYouCore
 import UIKit
-import VYouGoogle
-import VYouFacebook
-import VYouStripe
 import KMPNativeCoroutinesAsync
 
 class LoginViewModel: ObservableObject {
@@ -44,7 +41,7 @@ class LoginViewModel: ObservableObject {
     func loginWithGoogle() {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
-        VYouGoogle.shared.signIn(presenting: viewController, onFailure: {_ in }) { [weak self] credentials in
+        GoogleService.shared.signIn(presenting: viewController, onFailure: {_ in }) { [weak self] credentials in
             self?.router?.open(.profile)
         }
     }
@@ -52,16 +49,11 @@ class LoginViewModel: ObservableObject {
     func loginWithFacebook() {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
-        VYouFacebook.shared.signIn(presenting: viewController, onFailure: {_ in }) { [weak self] credentials in
+        FacebookService.shared.signIn(presenting: viewController, onFailure: {_ in }) { [weak self] token in
+//            let params = VYouSignInPara(accessToken: token)
+//            try await asyncFunction(for: VYou.shared.signIn(params: params))
             self?.router?.open(.profile)
         }
-    }
-    
-    func payAnonymously() {
-        guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
-        
-        let params = VYouPaymentParams(amount: 200)
-        VYouStripe.shared.createAnonymousPayment(presenting: viewController, params: params, onFailure: { _ in }, onSuccess: { })
     }
 }
 
