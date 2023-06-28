@@ -30,7 +30,7 @@ class RegisterViewModel: ObservableObject {
         showProgressView = true
         do {
             let params = VYouSignUpParams(username: model.email, termsConditions: model.termsConditions, privacyPolicy: model.privacyPolicy, info: model.infoAds)
-            try await asyncFunction(for: VYou.shared.signUp(params: params))
+            try await VYou.shared.signUp(params: params)
             router?.open(.profile)
         } catch {
             self.error = NetworkError(errorDescription: error.localizedDescription)

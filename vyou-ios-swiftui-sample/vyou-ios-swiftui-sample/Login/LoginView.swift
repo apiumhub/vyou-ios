@@ -33,13 +33,19 @@ struct LoginView: View {
             .padding(.bottom, 20)
             VStack {
                 Button("Log in with Google") {
-                    viewModel.loginWithGoogle()
+                    Task { await viewModel.loginWithGoogle() }
                 }
                 .padding(.bottom, 20)
                 Divider()
                 .padding(.bottom, 20)
                 Button("Log in with Facebook") {
                     viewModel.loginWithFacebook()
+                }
+                .padding(.bottom, 20)
+                Divider()
+                .padding(.bottom, 20)
+                Button("Log in with Apple") {
+                    viewModel.loginWithApple()
                 }
                 .padding(.bottom, 20)
             }

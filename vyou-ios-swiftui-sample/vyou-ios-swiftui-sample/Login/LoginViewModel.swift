@@ -9,7 +9,6 @@ import Foundation
 import VYou
 import VYouCore
 import UIKit
-import KMPNativeCoroutinesAsync
 
 class LoginViewModel: ObservableObject {
     @Published var credentials = LoginCredentials()
@@ -28,32 +27,42 @@ class LoginViewModel: ObservableObject {
     
     func login() async {
         showProgressView = true
-        do {
-            let provider = VYouSignInProviderKs.userPassword(VYouSignInProvider.UserPassword(username: credentials.email, password: credentials.password))
-            VYou.shared.signIn(provider: provider) { [weak self] credentials, _ in
-                self?.router?.open(.profile)
-            }
-        } catch {
-            self.error = NetworkError(errorDescription: error.localizedDescription)
-        }
+        await login(provider: VYouSignInProviderKs.userPassword(VYouSignInProvider.UserPassword(username: credentials.email, password: credentials.password)))
         showProgressView = false
     }
     
-    func loginWithGoogle() {
-        guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
+    func loginWithGoogle() async {
+        guard let viewController = await (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
-        GoogleService.shared.signIn(presenting: viewController, onFailure: {_ in }) { [weak self] credentials in
-            self?.router?.open(.profile)
+        do {
+            let token = try await GoogleService.shared.signIn(presenting: viewController)
+            await login(provider: VYouSignInProviderKs.google(VYouSignInProvider.Google(accessToken: token)))
+        } catch {
+            
         }
     }
     
     func loginWithFacebook() {
         guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
         
-        FacebookService.shared.signIn(presenting: viewController, onFailure: {_ in }) { [weak self] token in
-//            let params = VYouSignInPara(accessToken: token)
-//            try await asyncFunction(for: VYou.shared.signIn(params: params))
-            self?.router?.open(.profile)
+        FacebookService.shared.signIn(presenting: viewController, onFailure: {_ in }) { [unowned self] token in
+            Task { await self.login(provider: VYouSignInProviderKs.facebook(VYouSignInProvider.Facebook(accessToken: token))) }
+        }
+    }
+    
+    func loginWithApple() {
+        guard let viewController = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first?.rootViewController else { return }
+        AppleService.shared.signIn(presenting: viewController, onFailure: {_ in }) { [unowned self] token in
+            Task { await self.login(provider: VYouSignInProviderKs.apple(VYouSignInProvider.Apple(accessToken: token))) }
+        }
+    }
+    
+    private func login(provider: VYouSignInProviderKs) async {
+        do {
+            try await VYou.shared.signIn(provider: provider)
+            router?.open(.profile)
+        } catch {
+            self.error = NetworkError(errorDescription: error.localizedDescription)
         }
     }
 }

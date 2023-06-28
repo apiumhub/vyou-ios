@@ -9,12 +9,8 @@ public final class GoogleService {
         collaborator = GoogleSignInCollaborator(clientId: clientId)
     }
     
-    public func signIn(presenting: UIViewController, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (String) -> Void) {
-        collaborator.signIn(presenting: presenting, onFailure: {
-            onFailure(GoogleError.socialImplementation)
-        }) { token in
-            onSuccess(token)
-        }
+    public func signIn(presenting: UIViewController) async throws -> String {
+        try await collaborator.signIn(presenting: presenting)
     }
     
     public func signOut() {

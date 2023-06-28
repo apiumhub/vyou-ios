@@ -4,7 +4,7 @@ import FacebookLogin
 class FacebookSignInCollaborator {
     let manager: LoginManager = FacebookLogin.LoginManager()
     
-    func signIn(presenting: UIViewController, onFailure: @escaping () -> Void, onSuccess: @escaping (String) -> Void) {
+    func signIn(presenting: UIViewController, onFailure: @escaping () -> Void, onSuccess: @escaping (String) -> Void) {        
         manager.logIn(permissions: ["public_profile", "email"], from: presenting) { (loginResult, error) in
             guard error == nil, let result = loginResult, let token = result.token?.tokenString else {
                 onFailure()

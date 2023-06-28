@@ -9,7 +9,6 @@ import Foundation
 import VYou
 import VYouCore
 import SwiftUI
-import KMPNativeCoroutinesAsync
 
 class ProfileViewModel: ObservableObject {
     
@@ -20,7 +19,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     func logOut() async {
-        try? await asyncFunction(for: VYou.shared.signOut())
+        try? await VYou.shared.signOut()
         router?.cleanOpen(.login)
     }
 }
