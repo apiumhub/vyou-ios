@@ -24,55 +24,6 @@ public final class VYou {
     public func accessToken() -> String { return client.getAccessToken() }
     public func tokenType() -> String{ return client.getTokenType() }
     
-    public func signIn(provider: VYouSignInProviderKs, completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
-        switch provider {
-        case .userPassword(let params):
-            return client.signIn(params: params, pkce: cryptManager.generatePKCE(), completionHandler: completionHandler)
-        case .google(let params):
-            return client.signInGoogle(params: params, completionHandler: completionHandler)
-        case .facebook(let params):
-            return client.signInFacebook(params: params, completionHandler: completionHandler)
-        case .apple(let params):
-            return client.signInApple(params: params, completionHandler: completionHandler)
-        
-        }
-    }
-    
-    public func signUp(params: VYouSignUpParams, completionHandler: @escaping (Error?) -> Void) {
-        client.signUp(params: params, completionHandler: completionHandler)
-    }
-    
-    public func signUpVerify(params: VYouSignUpVerifyParams, completionHandler: @escaping (Error?) -> Void) {
-        client.signUpVerify(params: params, completionHandler: completionHandler)
-    }
-    
-    public func signUpPassword(params: VYouSignUpPasswordParams, completionHandler: @escaping (Error?) -> Void) {
-        let password = params.password
-        let encryptedPassword = cryptManager.encryptPassword(email: client.getEmail(), password: password)
-        client.signUpPasswords(encryptedPassword: encryptedPassword, completionHandler: completionHandler)
-    }
-    
-    public func signOut(completionHandler: @escaping (Error?) -> Void) {
-        client.signOut(completionHandler: completionHandler)
-    }
-    
-    public func resetPassword(params: VYouResetPasswordParams, completionHandler: @escaping (Error?) -> Void) {
-        client.resetPassword(params: params, completionHandler: completionHandler)
-    }
-    
-    public func refreshToken(completionHandler: @escaping (VYouCredentials?, Error?) -> Void) {
-        client.refreshToken(completionHandler: completionHandler)
-    }
-    
-    public func getProfile(completionHandler: @escaping (VYouProfile?, Error?) -> Void) {
-        client.getProfile(completionHandler: completionHandler)
-    }
-    
-    public func editProfile(params: VYouEditProfileParams, completionHandler: @escaping (VYouProfile?, Error?) -> Void) {
-        client.editProfile(params: params, completionHandler: completionHandler)
-    }
-    
-    
     public class Builder {
         let clientId: String
         let serverUrl: String

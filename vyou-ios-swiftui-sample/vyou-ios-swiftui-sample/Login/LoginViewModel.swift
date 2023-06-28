@@ -29,9 +29,10 @@ class LoginViewModel: ObservableObject {
     func login() async {
         showProgressView = true
         do {
-            let params = VYouSignInParams(username: credentials.email, password: credentials.password)
-            try await asyncFunction(for: VYou.shared.signIn(params: params))
-            router?.open(.profile)
+            let provider = VYouSignInProviderKs.userPassword(VYouSignInProvider.UserPassword(username: credentials.email, password: credentials.password))
+            VYou.shared.signIn(provider: provider) { [weak self] credentials, _ in
+                self?.router?.open(.profile)
+            }
         } catch {
             self.error = NetworkError(errorDescription: error.localizedDescription)
         }

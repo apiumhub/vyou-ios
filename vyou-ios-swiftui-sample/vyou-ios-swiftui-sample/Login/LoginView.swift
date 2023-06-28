@@ -42,12 +42,6 @@ struct LoginView: View {
                     viewModel.loginWithFacebook()
                 }
                 .padding(.bottom, 20)
-                Divider()
-                .padding(.bottom, 20)
-                Button("Pay anonymously") {
-                    viewModel.payAnonymously()
-                }
-                .padding(.bottom, 20)
             }
             Spacer()
         }

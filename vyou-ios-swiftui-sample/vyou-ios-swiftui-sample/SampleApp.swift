@@ -8,9 +8,6 @@
 
 import SwiftUI
 import VYou
-import VYouGoogle
-import VYouFacebook
-import VYouStripe
 
 @main
 struct SampleApp: App {
@@ -22,19 +19,17 @@ struct SampleApp: App {
         let serverUrl = ProcessInfo.processInfo.environment["SERVER_URL"] ?? ""
         let publicSalt = ProcessInfo.processInfo.environment["PUBLIC_SALT"] ?? ""
         let googleId = ProcessInfo.processInfo.environment["GOOGLE_CLIENT_ID"] ?? ""
-        let stripePublishableKey = ProcessInfo.processInfo.environment["STRIPE_PUBLISHABLE_KEY"] ?? ""
                 
         VYou.Builder(clientId: clientId, serverUrl: serverUrl, publicSaltBase64: publicSalt)
             .enableNetworkLogs(level: .all)
             .addOnSignOut {
-                VYouGoogle.shared.signOut()
-                VYouFacebook.shared.signOut()
+                GoogleService.shared.signOut()
+                FacebookService.shared.signOut()
             }
             .build()
         
-        VYouGoogle.Builder(clientId: googleId).build()
-        VYouFacebook.Builder().build()
-        VYouStripe.Builder(publishableKey: stripePublishableKey, merchantDisplayName: "Sample").build()
+        GoogleService.Builder(clientId: googleId).build()
+        FacebookService.Builder().build()
     }
     
     var body: some Scene {
@@ -44,8 +39,6 @@ struct SampleApp: App {
             case .forgotPassword: LoginView()
             case .register: RegisterView().environmentObject(router)
             case .profile: ProfileView().environmentObject(router)
-            case .products: ProductsView().environmentObject(router)
-            case .subscriptions: SubscriptionsView().environmentObject(router)
             }
         }
     }
