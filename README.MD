@@ -2,19 +2,13 @@
 
 This is the iOS SDK for [VYou](https://www.vyou-app.com/), a service to provide user identity to your applications. This library includes a client SDK along some artifacts and a sample to streamline your workflow.
 
-The SDK is written in Kotlin using Kotlin Multiplatform for the client side and in Swift for the integration with third-party social libraries.
+The SDK is written in Kotlin using Kotlin Multiplatform for the client side and in Swift for the integration with third-party libraries.
 
 ## Overview
 
-The SDK consist of various artifacts:
-
 - [KMM-Client](#client): Client to manage operations with VYou authentication server.
-- [iOS-Apple](#integration-with-social-libraries): Library to sign in/up in VYou through Apple libraries.
-- [iOS-Google](#integration-with-social-libraries): Library to sign in/up in VYou through Google libraries.
-- [iOS-Facebook](#integration-with-social-libraries): Library to sign in/up in VYou through Facebook libraries.
-- [iOS-Stripe](#integration-with-payment-methods): Library to make payments and subscriptions through Stripe.
 
-In addition, we have created a [sample application](https://github.com/apiumhub/vyou-ios/blob/main/vyou-ios-swiftui-sample) using SwiftUI to test how each artefact can be implemented.
+In addition, we have created a [sample application](https://github.com/VYou-App/vyou-ios/blob/main/vyou-ios-swiftui-sample) using SwiftUI to test how each artefact can be implemented.
 
 # Client
 
@@ -23,14 +17,8 @@ In addition, we have created a [sample application](https://github.com/apiumhub/
 The library is available through SPM (Swift Package Manager), just go to your Xcode project, click File > Add Packages and paste the git url in the search field. You can also use it as a library inside your Package.swift file.
 
 ```swift
-.package(url: "https://github.com/apiumhub/vyou-ios",.upToNextMajor(from: "{latest-release-version}")),
+.package(url: "https://github.com/VYou-App/vyou-ios",.upToNextMajor(from: "{latest-release-version}")),
 ```
-
-The library will provide you four targets:
-- VYou: Client library and required for other targets.
-- VYouApple: Authenticate using Apple Sign In
-- VYouGoogle: Authenticate using Google Sign In
-- VYouFacebook: Authenticate using Facebook Log In
 
 ## Getting Started
 
@@ -120,13 +108,7 @@ First, each function can be resolved through a completion handler method. For ex
 func signIn(params: VYouSignInParams, completionHandler: (VYouCredentials) -> Void)
 ```
 
-This approach may help in some projects but in most projects an asynchronous solution such as Async/Await, Combine or RxSwift should be used. To support these cases, as we have mentioned each function is `native` and can be encapsulated to support each case and this is done using [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines) which can be installed using SPM.
-
-When you install it, you have multiple targets to support each asynchronous framework:
-- KMPNativeCoroutines: Core part of the framework and required
-- KMPNativeCoroutinesAsync: To use async/await operations with VYou native functions.
-- KMPNativeCoroutinesCombine: To use task operations with VYou native functions.
-- KMPNativeCoroutinesRxSwift: To use rx single/observable operations with VYou native functions.
+This approach may help in some projects but in most projects an asynchronous solution such as Async/Await, Combine or RxSwift should be used. To support these cases, as we have mentioned each function is `native` and can be encapsulated to support each case and this is done using [KMP-NativeCoroutines](https://github.com/rickclephas/KMP-NativeCoroutines).
 
 ```swift
 import KMPNativeCoroutines
@@ -154,22 +136,20 @@ func signIn() -> Single<VYouCredentials> {
 }
 ```
 
-These are some examples but you can check all the options in the [KMP-NativeCoroutines] repository (https://github.com/rickclephas/KMP-NativeCoroutines).
-
 ### Sign in
 
 ```swift
-//VYouSignInParams(username, password)
-VYou.shared.signIn(params: VYouSignInParams) -> VYouCredentials
+//VYouSignInProvider.UserPassword(username, password)
+VYou.shared.signIn(params: VYouSignInProvider.UserPassword) -> VYouCredentials
 
-//VYouSignInSocialParams(apple)
-VYou.shared.signInFacebook(params: VYouSignInSocialParams) -> VYouCredentials
+//VYouSignInProvider.Apple(apple)
+VYou.shared.signInFacebook(params: VYouSignInProvider.Apple) -> VYouCredentials
 
-//VYouSignInSocialParams(googleIdToken)
-VYou.shared.signInGoogle(params: VYouSignInSocialParams) -> VYouCredentials
+//VYouSignInProvider.Google(googleIdToken)
+VYou.shared.signInGoogle(params: VYouSignInProvider.Google) -> VYouCredentials
 
-//VYouSignInSocialParams(facebookAccessToken)
-VYou.shared.signInFacebook(params: VYouSignInSocialParams) -> VYouCredentials
+//VYouSignInProvider.Facebook(facebookAccessToken)
+VYou.shared.signInFacebook(params: VYouSignInProvider.Facebook) -> VYouCredentials
 ```
 
 Each method returns a `VYouCredentials` class that contains the information to authorise any call covered by the VYou auth server. Internally, this information is stored in an encrypted keyring and can be retrieved through these credentials methods along with helper methods to check the user's session.
@@ -230,63 +210,6 @@ VYou.shared.editProfile(params: VYouEditProfileParams) -> VYouProfile
 
 It is not necessary to provide all fields, only the ones you want to modify.
 
-## Payments
-
-To make payments through Stripe, the SDK provides two methods to create payments through the VYou platform.
-
-```swift
-//Ex: VYou.shared.createPayment(params)
-
-//VYouPaymentParams(amount: Long (in cents))
-func createPayment(params: VYouPaymentParams) -> String
-func createAnonymousPayment(params: VYouPaymentParams) -> String
-```
-
-Both methods require the desired `amount` in `cents` and will return the `secret` key requested by Stripe's payment SDK to display the payment sheet. In case you don't have a Stripe integration, the `VYouStripe` library explained below covers all Stripe integration through the VYou platform.
-
-## Subscriptions
-
-To make subscriptions through Stripe, the SDK provides a few methods to manage the whole subscription process.
-
-Firstly, we have the method to return all the products related to the tenant, along with their price range, plus the `priceId` field will be required to create any subscription.
-
-
-```swift
-//Ex: VYou.shared.subscriptionProducts()
-
-//VYouProduct(name, description, prices)
-//VYouPrice(priceId, amount, currency, interval, intervalCount)
-func subscriptionProducts()) -> List<VYouProduct>
-```
-
-Then, to create a subscription, similar to payments, we have a method that will return the `secret` key, but in this case we need the `priceId` related to the desire interval and the product. Also, this functionality is covered in the `VYouStripe` library.
-
-
-```swift
-//Ex: VYou.shared.createSubscription(params)
-
-//VYouSubscriptionParams(priceId)
-func createSubscription(params: VYouSubscriptionParams) -> String
-```
-
-In addition, there is a method to display the subscriptions to which a user is subscribed.
-
-```swift
-//Ex: VYou.shared.mySubscriptions()
-
-//VYouSubscription(subscriptionId, productName, amount, currency, nextBillingDate, created)
-func mySubscriptions() -> List<VYouSubscription>
-```
-
-Finally, a user can cancel a subscription through the following method
-
-```swift
-//Ex: VYou.shared.cancelSubscription(params)
-
-//VYouSubscriptionCancelParams(subscriptionId)
-func cancelSubscription(params: VYouSubscriptionCancelParams)
-```
-
 ## Other methods
 
 To **log out** of the platform and clear the saved credentials, there is a sign out method
@@ -308,154 +231,3 @@ VYou.shared.refreshToken() -> VYouCredentials
 ```
 
 This must be implemented in a network interceptor to provide a smooth user experience, if the refresh token fails, the user must log in again to retrieve a new access token.
-
-# Integration with social libraries
-
-To facilitate integration with Apple, Google and Facebook, we have created several artefacts to manage login across each platform.
-
-## Getting started (Social)
-
-The use of each library is very similar but each one needs a previous configuration.
-
-### Apple
-To use Apple Sign In, you need to activate the Sign In through Application's target > Signing&Capabilities > Add Capability > Sign in with Apple
-
-This will generate an entitlements file associated with the target and validate the functions.
-
-### Google
-Inside Info.plist must be provided the url related with Google Client Id of your project inside URLTypes
-
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-  <key>CFBundleURLSchemes</key>
-  <array>
-    <string>{GOOGLE_CLIENT_URL}</string>
-  </array>
-  </dict>
-</array>
-```
-
-### Facebook
-In case of Facebook, you need to include Facebook Client Id of your project plus some data to be displayed in the web dialog.
-
-```xml
-<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-  <key>CFBundleURLSchemes</key>
-  <array>
-    <string>fb{FACEBOOK-CLIENT-ID}</string>
-  </array>
-  </dict>
-</array>
-<key>FacebookAppID</key>
-<string>{FACEBOOK-CLIENT-ID}</string>
-<key>FacebookDisplayName</key>
-<string>{FACEBOOK-CLIENT-NAME}</string>
-```
-
-### Initialize the client (Social)
-
-Each library has a Builder class to create the shared instance to be used. This can be initialised in the AppDelegate or main entry point of the Swift UI application as in [client](#installation) section
-
-```swift
-VYouApple.Builder().build()
-VYouFacebook.Builder().build()
-VYouGoogle.Builder(clientId: "{GOOGLE_CLIENT_ID}").build()
-```
-
-In addition, for Google and Facebook we need to add some methods related to application events.
-
-```swift
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        VYouFacebook.shared.didFinishLaunchingWithOptions(application: application, didFinishLaunchingWithOptions: launchOptions)
-    }
-
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        VYouGoogle.shared.handle(url: url)
-        VYouFacebook.shared.handle(application: app, url: url)
-    }
-}
-```
-
-Then, we can start using both libraries inside our application through their `shared` method. Remember, that if you don't build the libraries, the `shared` instance will throw an exception.
-
-### Sign in (Social)
-
-Each of the libraries has similar functions for signing in to the VYou platform.
-
-After apply these methods, we can use the `signIn()` method of each library.
-
-```swift
-//Ex: VYouApple.shared.signIn
-//Ex: VYouGoogle.shared.signIn
-//Ex: VYouFacebook.shared.signIn
-func signIn(presenting: UIViewController, onFailure: @escaping (Error) -> Void, onSuccess: @escaping (VYouCredentials) -> Void)
-```
-Each method returns a `VYouCredentials` that you can use as you wish.
-
-### Sign out (Social)
-
-To sign out of the social libraries, we have the same method for each library, except Apple which doesn't need it.
-
-```swift
-//Ex: VYouGoogle.shared.signOut()
-//Ex: VYouFacebook.shared.signOut()
-func signOut()
-```
-
-If you use both platforms in your application, we encourage you to use the `signOut()` method in the [client](#other-methods) section when the user wants to log out and then use these social `signOut()` methods within `addOnSignOut()` of the client builder class.
-
-```swift
-let builder = VYou.Builder()
-builder.addOnSignOut {
-    VYouGoogle.shared.signOut()
-    VYouFacebook.shared.signOut()
-}
-```
-
-# Integration with payment methods
-
-To enhance the customer experience, the SDK also provides a solution that uses Stripe to make payments and create subscription methods.
-
-## Initialize the client (Stripe)
-
-The library have a Builder class to create the shared instance to be used. This can be initialized in the AppDelegate or main entry point of the Swift UI app like in the [client](#installation) section.
-
-```swift
-// publishableKey - Key from Stripe's dashboard
-// merchantDisplayName - The name of the merchant that you want to display in the payment sheet.
-VYouStripe.Builder(
-    publishableKey: String,
-    merchantDisplayName: String
-).build()
-```
-
-Then, we can start using the library inside our application through their `shared` instance. Remember, that if you don't build the library, the `shared` instance will throw an exception.
-
-### Payments (Stripe)
-
-Through the SDK, we can create any payment to our users, the SDK provides two ways to do it, for users logged into the platform, or doing anonymously, when you don't need the user information.
-
-```swift
-VYouStripe.shared.createPayment(presenting: UIViewController, params: VYouPaymentsParams)
-VYouStripe.shared.createAnonymousPayment(presenting: UIViewController, params: VYouPaymentsParams)
-```
-
-`VYouPaymentParams` is a data class that requires the desire amount to be displayed to the user in cents, so if you want to display 1 euro, you must create an object `VYouPaymentParams(amount: 100)`.
-
-In the case of user cancels the payment or the operation fails, the SDK will return a `VYouError`.
-
-### Subscriptions (Stripe)
-
-In the case of subscriptions, the process is similar, the only changes is the params object, that now it is a `VYouSubscriptionParams(priceId: String)`. The `priceId` is the payment interval option related to the subscription (product in Stripe). The SDK through the `Client` library provides a way to display all the subscriptions related with the tenant. You can check this method and others related in the [section](#subscriptions)
-
-```swift
-VYouStripe.shared.createSubscription(presenting: UIViewController, params: VYouSubscriptionParams)
-```
-
-In the case of user cancels the subscription or the operation fails, the SDK will return a `VYouError`.
